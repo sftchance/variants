@@ -1,0 +1,32 @@
+.variant {
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-image: url("/cdn/variants.png");
+  background-size: cover;
+  margin-right: 40px;
+  align-content: stretch;
+
+  &::after {
+    top: 45% !important;
+  }
+
+  &:nth-of-type(1) {
+    background-position: 5% center;
+  }
+
+  &:nth-of-type(2) {
+    background-position: 25% center;
+  }
+
+  &:nth-of-type(3) {
+    background-position: 45% center;
+  }
+
+  &:nth-of-type(4) {
+    background-position: 65% center;
+    margin-right: 0px;
+  }
+}

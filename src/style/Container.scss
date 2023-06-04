@@ -1,0 +1,18 @@
+.container {
+  margin-top: 120px;
+  padding-inline: 60px;
+
+  &.thin {
+    .img {
+      max-width: 1080px;
+      margin-inline: auto;
+      margin-bottom: 40px;
+      display: grid;
+    }
+
+    .content {
+      max-width: 720px;
+      margin-inline: auto;
+    }
+  }
+}

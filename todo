@@ -1,0 +1,20 @@
+☐ Add links to the variant columns.
+☐ Generate the favicon.
+☐ Meta tags.
+☐ Opengraph images.
+    Note: Should use Vercel's Image API to generate the images.
+☐ Add a footer.
+☐ Implement vercel analytics.
+☐ Figure out the domain situation.
+☐ Figure out how to fully implement the auto-building of the markdown outputs.
+
+Archive:
+  ✔ Calculate read time upon building. @done(23-06-03 14:38)
+  ✔ Real page transitions. @done(23-06-02 23:05)
+  ✔ Share links @done(23-06-02 19:38)
+  ✔ Implement anchor tags for the posts that use <Link> when an internal link. @done(23-06-02 18:10)
+  ✔ Append an icon when the link is external. @done(23-06-02 18:10)
+  ✘ Convert the [[links]] in the markdown files to real links. @cancelled(23-06-02 16:41)
+    Note: When [[ ]] is used we can assume it to be a local link pointing to another paper.
+    Conclusion: Cannot figure out how to do this.
+  ✔ Implement the complete landing page style. @done(23-06-02 16:41)
