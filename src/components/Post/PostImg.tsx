@@ -2,16 +2,18 @@ import { useRef } from "react";
 
 import "../../style/PostImg.scss";
 
-export const PostImg = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-    const { alt } = props;
-
+export const PostImg: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({
+    src,
+    alt,
+    ...rest
+}) => {
     const ref = useRef<HTMLImageElement>(null);
 
     return <div className="post-img">
-        <img {...props} ref={ref} />
+        <img ref={ref} alt={alt} {...rest} />
 
         <div className="blur" style={{
-            backgroundImage: `url(${props.src})`,
+            backgroundImage: `url(${src})`,
             width: ref.current?.clientWidth,
             height: ref.current?.clientHeight,
         }} />

@@ -4,9 +4,11 @@ import { HeaderLinkProps } from "../types";
 
 import { useScroll } from "../hooks";
 
-export const HeaderLink = (props: HeaderLinkProps) => {
-    const { className: _className, dataId, text } = props;
-
+export const HeaderLink: React.FC<React.HTMLAttributes<HTMLButtonElement> & HeaderLinkProps> = ({
+    dataId,
+    text,
+    className = ""
+}) => {
     const { target, onClick } = useScroll();
 
     const isActive = useMemo((): boolean => {
@@ -19,9 +21,7 @@ export const HeaderLink = (props: HeaderLinkProps) => {
         return target.x >= element.offsetLeft && target.x <= element.offsetLeft + element.offsetWidth;
     }, [target, dataId]);
 
-    const className = `link ${isActive ? "active" : ""} ${_className ? _className : ""}`;
-
-    return <button className={className} data-id={dataId} onClick={onClick}>
+    return <button className={`link ${isActive ? "active" : ""} ${className}`} data-id={dataId} onClick={onClick}>
         {text}
     </button >
 }

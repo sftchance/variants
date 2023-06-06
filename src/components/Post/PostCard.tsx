@@ -8,7 +8,7 @@ import { HalftoneCard, Tag } from "../";
 
 import "../../style/PostCard.scss"
 
-export const PostCard = ({ filename }: PostCardProps) => {
+export const PostCard: React.FC<PostCardProps> = ({ filename }) => {
     const post = usePost(filename)
 
     if (!post) return <></>

@@ -14,7 +14,7 @@ import { PostNote, Container, HalftoneCard, Header, PostCode, PostImg, Tag, Post
 
 import "../../style/Post.scss"
 
-export const Post = () => {
+export const Post: React.FC = () => {
     const { copy } = useClipboard(window.location.href);
 
     const { id } = useParams<{ id: string }>();

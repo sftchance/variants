@@ -1,23 +1,28 @@
-import { ReactNode } from "react";
-
 export type CountUpProps = {
     start?: number;
-    end: number;
+    end?: number;
     duration?: number;
     prepend?: string;
-    append?: string
-}
+    append?: string;
+};
 
-export type HalftoneCardProps = React.HTMLAttributes<HTMLDivElement> & {
+export type HalftoneCardProps = {
     src?: string;
     title?: string;
     description?: string;
     disableOverlay?: boolean;
+};
+
+export type HeaderLinkProps = {
+    dataId?: string;
+    text: React.ReactNode;
 }
 
-export type HeaderLinkProps = React.HTMLAttributes<HTMLButtonElement> & {
-    dataId?: string;
-    text: ReactNode;
+export type MetaProps = {
+    title: string;
+    description?: string;
+    image?: string;
+    [key: string]: string | undefined;
 }
 
 export type PostProps = {
@@ -37,28 +42,38 @@ export type PostProps = {
     },
 };
 
-export type PostAttributeProps = {
-    [key: string]: string | undefined,
-}
-
 export type PostCardProps = {
-    filename: string
+    filename: string;
+};
+
+export type PostCodeProps = {
+    children: string[];
+    language?: string;
 }
 
-export type PostNoteProps = React.HTMLAttributes<HTMLDivElement> & {
+export type PostNoteProps = {
     author?: string,
-    note?: string,
+    note: string,
+    created?: string,
     side?: string,
     hover?: boolean,
-    created?: string,
 }
 
-export type StaticWrapperProps = {
-    children: ReactNode[] | ReactNode;
-}
-
-export type StaticWrapperSectionProps = React.HTMLAttributes<HTMLElement> & {
+export type StaticWrapperSectionProps = (React.ReactElement & {
     distanceToCenter?: boolean;
     fit?: boolean;
+    id?: string;
     padded?: boolean;
-};
+});
+
+export type StaticWrapperProps = { children: StaticWrapperSectionProps[] }
+
+export type TagProps = {
+    to?: string;
+}
+
+export type VariantProps = {
+    name: string;
+    created: Date;
+    twitter?: boolean;
+}

@@ -1,29 +1,33 @@
 import { useEffect, useMemo, useState } from 'react';
+
 import { CountUpProps } from '../types';
+
 import { verboseUnit } from '../utils';
 
-export const CountUp = (props: CountUpProps) => {
-    const {
-        start = 0,
-        end: _,
-        duration = 1000,
-        prepend = '',
-        append = ''
-    } = props;
-
+export const CountUp: React.FC<CountUpProps> = ({
+    start = 0,
+    end = 0,
+    duration = 1000,
+    prepend = "",
+    append = ""
+}) => {
     const [count, setCount] = useState<number>(start);
 
-    const unitStr = useMemo(() => verboseUnit(_), [_]);
+    const value = useMemo(() => {
+        const unitStr = verboseUnit(end);
 
-    const end = Number(_.toString().slice(0, 3))
+        return `${prepend}${count}${unitStr || ""}${append}`;
+    }, [end, prepend, append, count]);
 
     useEffect(() => {
-        if (count < end) {
+        const scaledEnd = Number(end.toString().slice(0, 3))
+
+        if (count < scaledEnd) {
             setTimeout(() => {
                 setCount(count + 1);
-            }, duration / (end - start));
+            }, duration / (scaledEnd - start));
         }
     }, [start, end, duration, count]);
 
-    return <>{prepend}{count}{unitStr}{count === end && append}</>
+    return <>{value}</>
 }

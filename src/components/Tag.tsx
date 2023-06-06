@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 
+import { TagProps } from "../types"
+
 import "../style/Tag.scss";
 
-export const Tag = (props: React.HTMLAttributes<HTMLDivElement>) => {
-    return <Link to={`/post/?tag=${props.children}`}>
-        <span className="tag">{props.children}</span>
+export const Tag: React.FC<React.HTMLAttributes<HTMLDivElement> & TagProps> = ({
+    children,
+    to = '/post/?tag='
+}) => {
+    return <Link to={`${to}${children}`}>
+        <span className="tag">{children}</span>
     </Link>
 }

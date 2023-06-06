@@ -5,16 +5,18 @@ import { faExternalLink } from "@fortawesome/pro-duotone-svg-icons";
 
 import "../../style/PostAnchor.scss";
 
-export const PostAnchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
-    const { href, children } = props;
-
-    if (!href) return <a {...props} />
+export const PostAnchor: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+    href,
+    children,
+    ...rest
+}) => {
+    if (!href) return <a {...rest}>{children}</a>
 
     const isInternal = href?.startsWith("/");
 
     if (isInternal) return <Link to={href}>{children}</Link>
 
-    return <a {...props} target="_blank" rel="noopener noreferrer" className="external">
+    return <a href={href} target="_blank" rel="noopener noreferrer" className="external" {...rest}>
         {children}
         <FontAwesomeIcon icon={faExternalLink} />
     </a>

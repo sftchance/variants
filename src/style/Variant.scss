@@ -1,6 +1,6 @@
 .variant {
   height: 100%;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -9,8 +9,19 @@
   margin-right: 40px;
   align-content: stretch;
 
+  .links {
+    height: 55px;
+
+    svg {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: var(--color-black-dark);
+    }
+  }
+
   &::after {
-    top: 45% !important;
+    top: 35% !important;
   }
 
   &:nth-of-type(1) {

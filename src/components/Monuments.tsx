@@ -4,9 +4,7 @@ import { HalftoneCard } from "./";
 
 import "../style/Monuments.scss";
 
-export const Monuments = (props: StaticWrapperSectionProps) => {
-    props;
-
+export const Monuments: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     return <div className="monuments">
         <h2>STANDING MONUMENTS OF<br /> VARIANT EXPRESSION.</h2>
 

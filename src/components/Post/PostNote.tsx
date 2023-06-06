@@ -2,18 +2,25 @@ import { PostNoteProps } from "../../types";
 
 import "../../style/PostNote.scss";
 
-export const PostNote = (props: PostNoteProps) => {
-    return <span className={`note ${props.hover ? "hover" : ""}`}>
-        {props.children}
+export const PostNote: React.FC<React.HTMLAttributes<HTMLElement> & PostNoteProps> = ({
+    children,
+    author,
+    note,
+    created,
+    side = "right",
+    hover = false
+}) => {
+    return <span className={`note ${hover ? "hover" : ""}`}>
+        {children}
 
-        <span className={`content ${props.side || ""}`}>
-            {props.author && <span>
-                <img src={`/cdn/author/${props.author}.png/`} alt={props.author} />
+        {(author || note) && <span className={`content ${side || ""}`}>
+            {author && <span>
+                <img src={`/cdn/author/${author}.png/`} alt={author} />
 
-                <strong>{props.author} {props.created && ` // ${props.created}`}</strong>
+                <strong>{author} {created && ` // ${created}`}</strong>
             </span>}
 
-            {props.note && <span>{props.note || ""}</span>}
-        </span>
+            {note && <span>{note}</span>}
+        </span>}
     </span >
 }

@@ -1,20 +1,18 @@
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+import { PostCodeProps } from "../../types";
 
-interface PostCodeProps {
-    className?: string;
-    children: string;
-}
-
-export const PostCode = (props: PostCodeProps) => {
-    const { className, children } = props;
-
-    const language = className?.replace('lang-', '');
+export const PostCode: React.FC<Omit<React.HTMLAttributes<HTMLElement>, "children"> & PostCodeProps> = ({
+    className,
+    children,
+    language
+}) => {
+    const codeLanguage = className?.replace('lang-', '');
 
     return (
         <>
-            <SyntaxHighlighter language={language} style={oneLight}>
+            <SyntaxHighlighter language={language || codeLanguage} style={oneLight}>
                 {children}
             </SyntaxHighlighter>
         </>

@@ -1,13 +1,21 @@
-import { motion } from "framer-motion";
-
 import { ScrollProvider } from "./contexts";
 
-import { Decentered, Hero, Monuments, Place, StaticWrapper, Variants } from './components'
+import {
+    Decentered,
+    Hero,
+    Meta,
+    Monuments,
+    Place,
+    StaticWrapper,
+    Variants
+} from './components'
 
 import './style/App.scss'
 
 function App() {
     return <>
+        <Meta title="test" description="chance" />
+
         <ScrollProvider>
             <StaticWrapper>
                 <Hero id="hero" fit={true} />

@@ -2,9 +2,7 @@ import { StaticWrapperSectionProps } from "../types"
 
 import { HalftoneCard } from "./"
 
-export const Decentered = (props: StaticWrapperSectionProps) => {
-    props;
-
+export const Decentered: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     return <div className="bi-fold">
         <div>
             <HalftoneCard src="cdn/decentered.png" style={{ height: 720 }} disableOverlay={true} />

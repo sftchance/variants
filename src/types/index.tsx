@@ -2,14 +2,18 @@ export type {
     CountUpProps,
     HalftoneCardProps,
     HeaderLinkProps,
+    MetaProps,
     PostProps,
-    PostAttributeProps,
     PostCardProps,
+    PostCodeProps,
     PostNoteProps,
+    StaticWrapperSectionProps,
     StaticWrapperProps,
-    StaticWrapperSectionProps
-} from "./Props";
+    TagProps,
+    VariantProps
+} from "./components.interfaces";
 
-export type { ScrollContext } from "./Context";
-export type { Target } from "./Target";
-export type { Variant } from "./Variant";
+export type {
+    ScrollContextProps,
+    TargetProps
+} from "./hooks.interfaces";

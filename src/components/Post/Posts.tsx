@@ -6,7 +6,7 @@ import { Container, Header, PostCard } from "../"
 
 import "../../style/Posts.scss"
 
-export const Posts = () => {
+export const Posts: React.FC = () => {
     const directory = usePosts()
 
     const location = useLocation();

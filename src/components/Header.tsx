@@ -8,7 +8,7 @@ import "../style/Header.scss"
 
 const HERO_BREAKPOINT = 1200;
 
-export const Header = () => {
+export const Header: React.FC = () => {
     const location = useLocation();
 
     const queryParams = new URLSearchParams(location.search);

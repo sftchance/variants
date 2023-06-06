@@ -4,9 +4,7 @@ import { CountUp } from "./";
 
 import "../style/Hero.scss"
 
-export const Hero = (props: StaticWrapperSectionProps) => {
-    props;
-
+export const Hero: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     return <div className="hero">
         <h1>WELCOME TO THE HOME OF CHANCE VARIANTS</h1>
         <p className="lead">Explore the outputs of CHANCE in a catered culture of expression and visualization. Each respectively having their own contextual nuance, each variant is home to a different mind-speak.</p>

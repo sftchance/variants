@@ -1,9 +1,11 @@
 import "../style/Container.scss";
 
-export const Container = (props: React.HTMLAttributes<HTMLElement>) => {
-    const { className } = props
-
-    return <div {...props} className={`container ${className || ""}`}>
-        {props.children}
+export const Container: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+    children,
+    className = "",
+    ...rest
+}) => {
+    return <div {...rest} className={`container ${className}`}>
+        {children}
     </div >
 }

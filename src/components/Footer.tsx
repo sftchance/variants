@@ -47,7 +47,7 @@ const DEFAULT_PLAYER: Player = {
     }]
 }
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
     const { target } = useScroll();
 
     const ref = useRef<HTMLAudioElement>(null);
