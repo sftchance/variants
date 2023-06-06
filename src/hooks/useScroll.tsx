@@ -1,35 +1,41 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 
 import { ScrollContext } from "../contexts";
 
 export const useScroll = () => {
     const { ref, target, onTarget } = useContext(ScrollContext)
 
-    const onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        if (!ref || !ref.current) return;
+    const onClick = useCallback(
+        (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            if (!ref || !ref.current) return;
 
-        const { currentTarget } = event;
+            const { currentTarget } = event;
 
-        const id = currentTarget.getAttribute("data-id");
+            const id = currentTarget.getAttribute("data-id");
 
-        if (!id) return;
+            if (!id) return;
 
-        const element = document.getElementById(id);
+            const element = document.getElementById(id);
 
-        if (!element) return;
+            if (!element) return;
 
-        const center = element.offsetLeft + element.offsetWidth / 2;
+            const center = element.offsetLeft + element.offsetWidth / 2;
 
-        onTarget(center - ref.current.offsetWidth / 2, "click");
-    }
+            onTarget(center - ref.current.offsetWidth / 2, "click");
+        },
+        [ref, onTarget]
+    );
 
-    const onScroll = (event: React.WheelEvent<HTMLDivElement>) => {
-        if (!ref || !ref.current) return;
+    const onScroll = useCallback(
+        (event: React.WheelEvent<HTMLDivElement>) => {
+            if (!ref || !ref.current) return;
 
-        const { currentTarget } = event;
+            const { currentTarget } = event;
 
-        onTarget(currentTarget.scrollLeft + event.deltaY);
-    }
+            onTarget(currentTarget.scrollLeft + event.deltaY);
+        },
+        [ref, onTarget]
+    );
 
     return { ref, target, onClick, onScroll };
 }

@@ -14,7 +14,7 @@ import './style/App.scss'
 
 function App() {
     return <>
-        <Meta title="test" description="chance" />
+        <Meta title="CHANCE" description="chance" />
 
         <ScrollProvider>
             <StaticWrapper>

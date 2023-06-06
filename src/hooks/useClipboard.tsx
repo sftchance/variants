@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export const useClipboard = (text: string) => {
+import { ClipboardProps } from '../types';
+
+export const useClipboard = ({ text }: ClipboardProps) => {
     const [isCopied, setIsCopied] = useState(false);
 
     const copy = useCallback(() => {

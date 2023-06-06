@@ -16,4 +16,8 @@ export type {
 export type {
     ScrollContextProps,
     TargetProps
+} from "./contexts.interfaces";
+
+export type {
+    ClipboardProps
 } from "./hooks.interfaces";
