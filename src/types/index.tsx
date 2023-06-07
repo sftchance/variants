@@ -6,6 +6,7 @@ export type {
     PostProps,
     PostCardProps,
     PostCodeProps,
+    PostMarkdownProps,
     PostNoteProps,
     StaticWrapperSectionProps,
     StaticWrapperProps,

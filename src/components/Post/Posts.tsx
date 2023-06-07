@@ -1,37 +1,35 @@
-import { useLocation } from "react-router-dom"
+import { useMemo } from "react"
+
+import { useSearchParams } from "react-router-dom"
 
 import { usePosts } from "../../hooks"
 
-import { Container, Header, PostCard } from "../"
+import { Container, Header, Meta, PostCard } from "../"
 
 import "../../style/Posts.scss"
 
 export const Posts: React.FC = () => {
     const directory = usePosts()
 
-    const location = useLocation();
+    const [searchParams] = useSearchParams();
 
-    const queryParams = new URLSearchParams(location.search);
+    const tag = searchParams.get("tag");
+    const author = searchParams.get("author");
 
-    const { tag, author } = Object.fromEntries(queryParams.entries());
+    const filteredDirectory = useMemo(() => directory.filter(post => (
+        (tag && post.attributes.tags?.includes(tag)) ||
+        (author && post.attributes.authors.includes(author)) ||
+        (!tag && !author)
+    )), [directory, tag, author]);
 
-    const filteredDirectory = directory.filter(post => {
-        if (tag) {
-            return post.attributes.tags?.includes(tag)
-        }
-
-        if (author) {
-            return post.attributes.authors.includes(author)
-        }
-
-        return true;
-    })
-
-    const backgroundText = filteredDirectory.length === 0 ? "No posts found" : filteredDirectory[0].content
-        .replace(/[^a-zA-Z0-9 ]/g, "")
-        .trim();
+    const first = filteredDirectory[0];
+    const backgroundText = first && filteredDirectory.length === 0
+        ? "No posts found"
+        : (first?.content || "").replace(/[^\w\s]/g, "");
 
     return <>
+        <Meta title="Posts" description="Discover the writings of each CHANCE variant and the journey of their creation." />
+
         <Header />
 
         <Container>

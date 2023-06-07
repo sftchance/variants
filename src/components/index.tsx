@@ -3,7 +3,10 @@ export {
     PostAnchor,
     PostCard,
     PostCode,
+    PostHeader,
     PostImg,
+    PostInfo,
+    PostMarkdown,
     PostNote,
     Posts
 } from './Post'

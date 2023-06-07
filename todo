@@ -1,5 +1,6 @@
 ☐ Generate the favicon.
 ☐ Meta tags.
+☐ Scroll to the top of the page when the link changes.
 ☐ Opengraph images.
     Note: Should use Vercel's Image API to generate the images.
 ☐ Add a footer.

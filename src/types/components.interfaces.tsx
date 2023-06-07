@@ -51,6 +51,10 @@ export type PostCodeProps = {
     language?: string;
 }
 
+export type PostMarkdownProps = {
+    children: string;
+}
+
 export type PostNoteProps = {
     author?: string,
     note: string,
