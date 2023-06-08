@@ -25,7 +25,3 @@ dist-ssr
 
 .env
 
-src/**/*.js
-src/**/*.d.ts
-src/**/*.d.ts.map
-src/**/*.js
