@@ -1,8 +1,8 @@
-import { StaticWrapperSectionProps } from "../types"
+import { StaticWrapperSectionProps } from "../../types"
 
 import { Variant } from "./Variant"
 
-import "../style/Variants.scss";
+import "../../style/Variants.scss";
 
 export const Variants: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     const variants = [{

@@ -14,7 +14,8 @@ import './style/App.scss'
 
 function App() {
     return <>
-        <Meta title="CHANCE" description="chance" />
+        <Meta title="VARIANTS"
+            description="Discover a diverse collection of content, tools, and ideas curated by the Variants of CHANCE. Explore the latest releases and immerse yourself in the world of creativity and abstract discovery." />
 
         <ScrollProvider>
             <StaticWrapper>

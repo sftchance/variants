@@ -1,6 +1,6 @@
-import { StaticWrapperSectionProps } from "../types"
+import { StaticWrapperSectionProps } from "../../types"
 
-import { HalftoneCard } from "./"
+import { HalftoneCard } from ".."
 
 export const Decentered: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     return <div className="bi-fold">

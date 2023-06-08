@@ -1,8 +1,8 @@
-import { StaticWrapperSectionProps } from "../types"
+import { StaticWrapperSectionProps } from "../../types"
 
-import { CountUp } from "./";
+import { CountUp } from "..";
 
-import "../style/Hero.scss"
+import "../../style/Hero.scss"
 
 export const Hero: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     return <div className="hero">

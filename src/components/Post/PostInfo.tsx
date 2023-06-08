@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { PostProps } from "../../types"
+import { CountUp } from ".."
 
 export const PostInfo: React.FC<{ data: PostProps }> = ({ data }) => {
     return <div className="info">
@@ -20,7 +21,7 @@ export const PostInfo: React.FC<{ data: PostProps }> = ({ data }) => {
         <p>// {new Date(data.attributes.created).toLocaleDateString()}</p>
 
         <p className="right">
-            {data.attributes.readTime} min{data.attributes.readTime > 1 ? "s" : ""}. read
+            <CountUp end={data.attributes.readTime} /> min{data.attributes.readTime > 1 ? "s" : ""}. read
         </p>
     </div>
 }

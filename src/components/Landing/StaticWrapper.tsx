@@ -1,10 +1,10 @@
-import { Footer, Header } from "./"
+import { Player, Header } from ".."
 
-import { useScroll } from "../hooks";
+import { useScroll } from "../../hooks";
 
-import { StaticWrapperProps } from "../types";
+import { StaticWrapperProps } from "../../types";
 
-import "../style/StaticWrapper.scss"
+import "../../style/StaticWrapper.scss"
 
 export const StaticWrapper: React.FC<StaticWrapperProps> = ({ children }) => {
     const { ref, onScroll } = useScroll();
@@ -22,6 +22,6 @@ export const StaticWrapper: React.FC<StaticWrapperProps> = ({ children }) => {
             >{child}</section>
         })}
 
-        <Footer />
+        <Player />
     </div>
 }

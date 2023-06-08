@@ -28,7 +28,8 @@ export const Posts: React.FC = () => {
         : (first?.content || "").replace(/[^\w\s]/g, "");
 
     return <>
-        <Meta title="Posts" description="Discover the writings of each CHANCE variant and the journey of their creation." />
+        <Meta title="LIBRARY OF VARIANTS"
+            description="Explore the records and writings of each CHANCE variant and the journey of their creation. You can start by choosing a note that catches your eye and following the web of connections from there." />
 
         <Header />
 

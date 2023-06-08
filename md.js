@@ -45,9 +45,9 @@ const processContents = (files, contents) => {
             .replace(/[^a-zA-Z0-9 ]/g, "")
             .trim()
 
-        const { title, image } = attributes;
+        const { title, image, author } = attributes;
 
-        if (!title || !image) return null;
+        if (!title || !image || !author) return null;
 
         return {
             filename,
@@ -57,7 +57,7 @@ const processContents = (files, contents) => {
             content: content.trim(),
             attributes: {
                 created: new Date(attributes.created || 0),
-                readTime: Math.floor(content.split(" ").length / 200),
+                readTime: Math.max(1, Math.floor(content.split(" ").length / 200)),
                 authors: attributes.author?.split(",") || [],
                 tags: attributes.tag?.split(","),
                 related: attributes.related?.split(","),

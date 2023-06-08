@@ -31,7 +31,7 @@ export const Post: React.FC = () => {
     if (!data) return <></>
 
     return <>
-        <Meta title={data.title} description={data.description} />
+        <Meta title={data.title.toUpperCase()} description={data.description} />
 
         <Header />
 

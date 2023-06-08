@@ -11,17 +11,23 @@ export {
     Posts
 } from './Post'
 
+export {
+    Decentered,
+    Hero,
+    Monuments,
+    Place,
+    Player,
+    StaticWrapper,
+    Variants,
+    Variant
+} from "./Landing"
+
 export { Container } from './Container'
+export { Copyright } from './Copyright'
 export { CountUp } from './CountUp'
-export { Decentered } from './Decentered'
-export { Footer } from './Footer'
 export { HalftoneCard } from './HalftoneCard'
 export { Header } from './Header'
 export { HeaderLink } from './HeaderLink'
-export { Hero } from './Hero'
 export { Meta } from './Meta'
-export { Monuments } from './Monuments'
-export { Place } from './Place'
-export { StaticWrapper } from './StaticWrapper'
+export { ScrollToTop } from './ScrollToTop'
 export { Tag } from './Tag'
-export { Variants } from './Variants'

@@ -1,8 +1,8 @@
-import { StaticWrapperSectionProps } from "../types"
+import { StaticWrapperSectionProps } from "../../types"
 
-import { HalftoneCard } from "./";
+import { HalftoneCard } from "..";
 
-import "../style/Monuments.scss";
+import "../../style/Monuments.scss";
 
 export const Monuments: React.FC<Partial<StaticWrapperSectionProps>> = () => {
     return <div className="monuments">

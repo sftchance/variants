@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
-import { VariantProps } from "../types"
+import { VariantProps } from "../../types"
 
-import { HalftoneCard } from "./"
+import { HalftoneCard } from ".."
 
-import "../style/Variant.scss"
+import "../../style/Variant.scss"
 
 export const Variant: React.FC<React.HTMLAttributes<HTMLDivElement> & VariantProps> = ({ name, created, twitter }) => {
     return <HalftoneCard className="variant">
