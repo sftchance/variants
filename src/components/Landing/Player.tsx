@@ -37,13 +37,15 @@ export const Player: React.FC = () => {
     }
 
     const repeat = useCallback(() => {
-        const { current } = ref;
-        const { current: animationCurrent } = animationRef;
+        // const { current } = ref;
+        // const { current: animationCurrent } = animationRef;
 
-        if (!current || !animationCurrent) return;
+        // if (!current || !animationCurrent) return;
 
-        setPlayer({ ...player, time: current.currentTime || 0 });
-    }, [ref, player, setPlayer]);
+        if (!ref.current) return
+
+        setPlayer({ ...player, time: ref.current.currentTime || 0 });
+    }, [ref, player]);
 
     useEffect(() => {
         const { current } = ref;

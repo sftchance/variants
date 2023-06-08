@@ -14,6 +14,7 @@ export {
 export {
     Decentered,
     Hero,
+    Landing,
     Monuments,
     Place,
     Player,

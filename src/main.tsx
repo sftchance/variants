@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { AnimatePresence } from "framer-motion";
 
-import { Post, Posts, ScrollToTop } from './components'
+import { Landing } from './components'
 
 import App from './App'
 
@@ -22,13 +22,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <HelmetProvider>
             <QueryClientProvider client={queryClient}>
                 <Router>
-                    <ScrollToTop />
-
                     <AnimatePresence mode="wait">
                         <Routes location={location} key={location.pathname}>
-                            <Route path="/" element={<App />} />
-                            <Route path="post/" element={<Posts />} />
-                            <Route path="post/:id/" element={<Post />} />
+                            <Route path="/" element={<Landing />} />
+                            <Route path="/*" element={<App />} />
                         </Routes>
                     </AnimatePresence>
                 </Router>

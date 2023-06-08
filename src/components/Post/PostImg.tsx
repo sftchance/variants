@@ -10,7 +10,7 @@ export const PostImg: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({
     const ref = useRef<HTMLImageElement>(null);
 
     return <div className="post-img">
-        <img ref={ref} alt={alt} {...rest} />
+        <img ref={ref} alt={alt} src={src} {...rest} />
 
         <div className="blur" style={{
             backgroundImage: `url(${src})`,
