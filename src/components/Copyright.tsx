@@ -1,5 +1,9 @@
+import { Container } from "."
+
+import "../style/Copyright.scss"
+
 export const Copyright: React.FC = () => {
-    return <div className="copyright">
-        <p>© 2022 - {new Date().getFullYear()} <a href={window.location.origin}>CHANCE</a></p>
-    </div>
+    return <Container className="copyright">
+        <p>© 2022 - {new Date().getFullYear()} CHANCE</p>
+    </Container>
 }

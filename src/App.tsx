@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { Meta, Post, Posts, ScrollToTop } from './components'
+import { Copyright, Meta, Post, Posts, ScrollToTop } from './components'
 
 function App() {
     return <>
@@ -12,6 +12,8 @@ function App() {
             <Route path="post/" element={<Posts />} />
             <Route path="post/:id/" element={<Post />} />
         </Routes>
+
+        <Copyright />
     </>
 }
 
