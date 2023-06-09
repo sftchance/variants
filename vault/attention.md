@@ -1,7 +1,7 @@
 tag: leadership,knowledge
 title: Attention Seeking Behavior
 image: /cdn/place.png
-created: 05/09/2021
+created: 2023-06-01
 author: nftchance
 related: running,black-holes
 ===

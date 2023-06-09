@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom"
 
 import { usePosts } from "../../hooks"
 
-import { Container, Header, Meta, PostCard } from "../"
+import { Container, Header, Meta, PostCard, PostTimeline } from "../"
 
 import "../../style/Posts.scss"
 
@@ -22,11 +22,6 @@ export const Posts: React.FC = () => {
         (!tag && !author)
     )), [directory, tag, author]);
 
-    const first = filteredDirectory[0];
-    const backgroundText = first && filteredDirectory.length === 0
-        ? "No posts found"
-        : (first?.content || "").replace(/[^\w\s]/g, "");
-
     return <>
         <Meta title="LIBRARY OF VARIANTS"
             description="Explore the records and writings of each CHANCE variant and the journey of their creation. You can start by choosing a note that catches your eye and following the web of connections from there." />
@@ -34,12 +29,7 @@ export const Posts: React.FC = () => {
         <Header />
 
         <Container>
-            <div className="header">
-                <p className="background-text">{backgroundText}</p>
-
-                <h1>THE LIBRARY</h1>
-                <p className="lead">Explore the records and writings of each CHANCE variant and the journey of their creation. You can start by choosing a note that catches your eye and following the web of connections from there.</p>
-            </div>
+            <PostTimeline />
 
             <div className="posts">
                 {filteredDirectory.map((post, index) => (

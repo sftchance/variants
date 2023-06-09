@@ -1,10 +1,10 @@
 ☐ Opengraph images.
     Note: Should use Vercel's Image API to generate the images.
-☐ Implement vercel analytics.
-    Note: This can only be done after the first deployment.
 ☐ Figure out the domain situation.
 
 Archive:
+  ✔ Implement vercel analytics. @done(23-06-09 09:45)
+    Note: This can only be done after the first deployment.
   ✔ Figure out how to fully implement the auto-building of the markdown outputs. @done(23-06-08 21:29)
     Note: I could just use a GitHub action to build the markdown files and push them to the repo.
   ✔ Add a copyright footer. @done(23-06-08 14:47)

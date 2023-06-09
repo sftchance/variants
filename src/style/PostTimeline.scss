@@ -1,0 +1,72 @@
+.timeline {
+  margin-block: 40px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+  transition: var(--variant-transition);
+
+  .divider {
+    width: 2px;
+    position: relative;
+
+    p {
+      position: absolute;
+      left: 5px;
+      top: -3px;
+      width: max-content;
+      font-size: 14px;
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+
+      span {
+        margin-left: 5px;
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 12px;
+        position: relative;
+        top: -5px;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -1px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(0, 0, 0, 0.15);
+      height: 52px;
+      border-radius: 10px;
+      top: 0px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .month {
+      filter: brightness(0.9);
+    }
+  }
+
+  .month {
+    background: var(--color-black-light);
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--variant-transition);
+    border-radius: 1px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 2px solid transparent;
+    margin-top: 20px;
+
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.025);
+      filter: brightness(1.2);
+    }
+  }
+}

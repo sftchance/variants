@@ -5,8 +5,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "node md.js && tsc && vite build",
+        "build": "npm run md && tsc && vite build",
         "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "md": "node md.js",
         "preview": "vite preview"
     },
     "dependencies": {

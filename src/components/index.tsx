@@ -8,6 +8,7 @@ export {
     PostInfo,
     PostMarkdown,
     PostNote,
+    PostTimeline,
     Posts
 } from './Post'
 

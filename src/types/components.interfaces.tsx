@@ -18,6 +18,12 @@ export type HeaderLinkProps = {
     text: React.ReactNode;
 }
 
+export type HeatmapProps = {
+    date: string;
+    posts: string[];
+    count: number
+}
+
 export type MetaProps = {
     title: string;
     description?: string;

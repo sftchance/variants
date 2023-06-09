@@ -2,6 +2,7 @@ export type {
     CountUpProps,
     HalftoneCardProps,
     HeaderLinkProps,
+    HeatmapProps,
     MetaProps,
     PostProps,
     PostCardProps,
