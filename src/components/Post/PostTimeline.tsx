@@ -33,7 +33,6 @@ const PostTimelinePeriod: React.FC<{ heatmap: HeatmapProps[], max: number }> = (
                 {heatmap[activeIndex].date}
                 <span>({hoveredIndex === -1 ? totalPosts : heatmap[activeIndex].count})</span>
             </p>
-
         </div>
 
         {Array.from({ length: heatmap.length }, (_, index) => <>
