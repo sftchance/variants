@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { inject } from '@vercel/analytics';
+
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 import { HelmetProvider } from 'react-helmet-async';
@@ -14,6 +16,8 @@ import { Landing } from './components'
 import App from './App'
 
 import './style/index.scss'
+
+inject();
 
 const queryClient = new QueryClient()
 
