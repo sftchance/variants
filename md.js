@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-const vaultPath = path.join('vault');
-
 const getFiles = (dirPath, arrayOfFiles) => {
     const files = fs.readdirSync(dirPath);
 
@@ -18,12 +16,6 @@ const getFiles = (dirPath, arrayOfFiles) => {
 
     return arrayOfFiles;
 }
-
-const files = getFiles(vaultPath);
-
-const fileContents = files.map((filePath) => {
-    return fs.readFileSync(path.join(vaultPath, filePath), 'utf-8');
-});
 
 const processContents = (files, contents) => {
     const base = files.map((file, index) => {
@@ -88,6 +80,14 @@ const processContents = (files, contents) => {
             return b.attributes.created.getTime() - a.attributes.created.getTime();
         })
 };
+
+const vaultPath = path.join('vault');
+
+const files = getFiles(vaultPath);
+
+const fileContents = files.map((filePath) => {
+    return fs.readFileSync(path.join(vaultPath, filePath), 'utf-8');
+});
 
 const processedContents = processContents(files, fileContents)
     .filter((item) => item !== null);
