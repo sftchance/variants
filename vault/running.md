@@ -1,6 +1,6 @@
 tag: knowledge
 title: Running from Consensus
-image: /cdn/decentered.png
+image: https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/8049975/image/f1339f23a5afa67003fa5109efbd1a21
 created: 05/09/2021
 author: drakedanner
 ===

@@ -26,14 +26,14 @@ const processContents = (files, contents) => {
         const attributes = mdAttributes
             .split("\n")
             .filter((line) => line !== "")
-            .map((line) => line.split(":"))
+            .map((line) => [line.slice(0, line.indexOf(":")), line.slice(line.indexOf(":") + 1)])
             .map((line) => line.map((item) => item.trim()))
             .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
 
         const filename = file.replace("../../vault/", "").replace(".md", "");
 
         const description = attributes.description || content
-            .slice(0, 140)
+            .slice(0, 240)
             .replace(/[^a-zA-Z0-9 ]/g, "")
             .trim()
 

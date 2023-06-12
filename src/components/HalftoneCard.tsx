@@ -1,6 +1,9 @@
+import { motion, useScroll } from "framer-motion";
+
 import { HalftoneCardProps } from "../types";
 
 import "../style/HalftoneCard.scss";
+import { useRef } from "react";
 
 export const HalftoneCard: React.FC<React.HTMLAttributes<HTMLDivElement> & HalftoneCardProps> = ({
     children,
@@ -10,8 +13,17 @@ export const HalftoneCard: React.FC<React.HTMLAttributes<HTMLDivElement> & Halft
     className = "",
     disableOverlay = false,
     style = {},
-    ...rest
 }) => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    const { scrollYProgress: cardOpacity } = useScroll({
+        target: ref, offset: ["-100vh", "-65vh"]
+    })
+
+    const { scrollYProgress: effectOpacity } = useScroll({
+        target: ref, offset: ["-100px", "90%"]
+    });
+
     const backgroundStyle = src ? { backgroundImage: `url(${src})` } : {}
 
     const body = children ? children : <>
@@ -19,13 +31,21 @@ export const HalftoneCard: React.FC<React.HTMLAttributes<HTMLDivElement> & Halft
         {description && <p>{description}</p>}
     </>
 
-    return <div
+    return <motion.div
+        ref={ref}
         className={`halftone ${disableOverlay ? "" : "overlay"} ${className}`}
-        style={{ ...backgroundStyle, ...style }}
-        {...rest}
+        style={{
+            ...backgroundStyle,
+            ...style,
+            opacity: cardOpacity,
+        }}
     >
-        <div className="blur" style={style} />
+        <motion.div className="blur" style={{
+            ...backgroundStyle,
+            ...style,
+            opacity: effectOpacity,
+        }} />
 
         <div className="content">{body}</div>
-    </div>
+    </motion.div>
 }

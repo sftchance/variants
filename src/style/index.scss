@@ -16,11 +16,11 @@
   -webkit-text-size-adjust: 100%;
 
   --color-white: rgba(255, 255, 255, 1);
-  --color-white-dark: rgba(255, 255, 255, 0.85);
+  --color-white-dark: rgba(255, 255, 255, 0.65);
   --color-white-light: rgba(255, 255, 255, 0.05);
   --color-white-transparent: rgba(255, 255, 255, 0);
   --color-black: rgba(0, 0, 0, 1);
-  --color-black-dark: rgba(0, 0, 0, 0.85);
+  --color-black-dark: rgba(0, 0, 0, 0.65);
   --color-black-light: rgba(0, 0, 0, 0.05);
   --color-black-transparent: rgba(0, 0, 0, 0);
 
@@ -100,7 +100,7 @@ p.context {
 }
 
 a {
-  color: var(--color-black-dark);
+  color: var(--color-black);
   text-decoration: none;
 }
 

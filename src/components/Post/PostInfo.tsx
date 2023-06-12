@@ -15,7 +15,6 @@ export const PostInfo: React.FC<{ data: PostProps }> = ({ data }) => {
 
                 {index < data?.attributes?.authors.length - 1 && <span>&</span>}
             </>)}
-
         </p>
 
         <p>// {new Date(data.attributes.created).toLocaleDateString()}</p>

@@ -6,9 +6,9 @@ import "../style/Tag.scss";
 
 export const Tag: React.FC<React.HTMLAttributes<HTMLDivElement> & TagProps> = ({
     children,
-    to = '/post/?tag='
+    to
 }) => {
-    return <Link to={`${to}${children}`}>
+    return <Link to={to ? to : `/post/?tag=${children}`}>
         <span className="tag">{children}</span>
     </Link>
 }

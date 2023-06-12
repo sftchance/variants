@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom"
 
 import { usePosts } from "../../hooks"
 
-import { Container, Header, Meta, PostCard, PostTimeline } from "../"
+import { Container, Header, Meta, PostCard } from "../"
 
 import "../../style/Posts.scss"
 
@@ -29,8 +29,6 @@ export const Posts: React.FC = () => {
         <Header />
 
         <Container>
-            <PostTimeline />
-
             <div className="posts">
                 {filteredDirectory.map((post, index) => (
                     <PostCard key={index} filename={post.filename} />

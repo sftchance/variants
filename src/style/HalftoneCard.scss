@@ -8,6 +8,9 @@
   grid-column: span 1;
   transition: all 0.3s ease-in-out;
   user-select: none;
+  overflow: hidden;
+  transform: translateZ(0);
+  filter: opacity(1);
 
   * {
     margin-bottom: 0px;
@@ -16,26 +19,48 @@
   }
 
   .blur {
-    height: calc(100% + 20px);
-    width: calc(100% + 20px);
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: -10px;
-    left: -10px;
+    top: 5px;
+    left: 5px;
     z-index: -2;
-    filter: blur(50px);
+    filter: contrast(10000000000000000000%) brightness(0.85) blur(5px);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    transition: all 0.3s ease-in-out;
   }
 
   .content {
     padding: 0px 20px;
     width: 100%;
     margin-bottom: 20px;
-
-    * {
-      text-shadow: 0px 0px 10px var(--color-white);
-    }
   }
 
-  &.overlay::after {
+  &::after {
+    content: "";
+    position: absolute;
+    top: -500%;
+    left: -500%;
+    right: -500%;
+    bottom: -500%;
+    background-blend-mode: multiply;
+    background: radial-gradient(4px 4px, cyan, white),
+      radial-gradient(4px 4px, magenta, white),
+      radial-gradient(4px 4px, yellow, white);
+    background-size: 4px 4px;
+    background-position: 0 -3px, -2px 0, 2px 0;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    transition: 1s ease-in-out transform;
+    z-index: -2;
+    transform: rotate(42.5deg);
+    backdrop-filter: saturate(0) contrast(10000000000000000000%);
+    filter: saturate(0) brightness(0.85) contrast(10000000000000000000%);
+  }
+
+  &.overlay::before {
     content: "";
     display: block;
     position: absolute;
@@ -49,13 +74,7 @@
       rgb(255, 255, 255, 0.9),
       rgb(255, 255, 255, 0.975)
     );
-  }
-
-  &.overlay .blur {
-    filter: blur(100px);
-    height: calc(100% + 10px);
-    width: calc(100% + 10px);
-    top: -5px;
-    left: -5px;
+    transform: rotate(0deg);
+    z-index: -1;
   }
 }

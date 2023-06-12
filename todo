@@ -1,8 +1,11 @@
+☐ Make sure that everything works on mobile.
+    ☐ Author notes will need a mobile-specific style.
 ☐ Opengraph images.
     Note: Should use Vercel's Image API to generate the images.
 ☐ Figure out the domain situation.
 
 Archive:
+  ✔ Fix icons in links in posts. @done(23-06-12 10:50)
   ✔ Implement vercel analytics. @done(23-06-09 09:45)
     Note: This can only be done after the first deployment.
   ✔ Figure out how to fully implement the auto-building of the markdown outputs. @done(23-06-08 21:29)

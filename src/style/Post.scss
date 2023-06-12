@@ -69,13 +69,13 @@
     position: relative;
 
     .prev {
-      left: 15%;
+      left: 12%;
       position: absolute;
       top: calc(50% - 20px);
     }
 
     .next {
-      right: 15%;
+      right: 12%;
       position: absolute;
       top: calc(50% - 20px);
     }
@@ -159,6 +159,12 @@
     a {
       position: relative;
       text-decoration: underline;
+
+      svg {
+        margin-inline: 2px;
+        margin-bottom: 4px;
+        font-size: 10px;
+      }
     }
 
     blockquote {
