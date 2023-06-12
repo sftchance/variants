@@ -20,11 +20,6 @@ While a company views the integration of an Event Horizon as an asset, is an inc
 
 In the past week and with the acquired understanding of [[We Are The Resources]] this is already becoming an issue for Flipside and we are only 5 months into employment:
 
-- I who architected almost all of the operational code of MetricsDAO. Firing me, means halting progression of the protocol to significant degrees.
-- Mason & Angela found a way to run acquisition strategies to cover for the lies and fraud of Flipside.
-- Drake is the Web3 cornerstone of Flipside and without him there will be no one that is truly integrated or passionate about Web3 leading the helm.
-- If Meg leaves, then MetricsDAO would come to a complete stand-still leaving Drake to fill the hole.
-
 Unfortunately though, this is the perfect display of Event Horizons coming together to create blackholes.
 
 If something happened to Meg, Drake cannot go back in time and will not take that role which means Drake will begin looking for a new job and figuring out how to adjust to the change without traveling back in time.

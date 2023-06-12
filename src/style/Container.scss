@@ -15,4 +15,8 @@
       margin-inline: auto;
     }
   }
+
+  @media (max-width: 768px) {
+    padding-inline: 20px;
+  }
 }
