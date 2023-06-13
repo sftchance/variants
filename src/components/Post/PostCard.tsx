@@ -11,7 +11,6 @@ import { HalftoneCard, Tag } from "../";
 
 import "../../style/PostCard.scss"
 
-
 export const PostCard: React.FC<PostCardProps> = ({ filename }) => {
     const post = usePost(filename)
 
@@ -28,16 +27,18 @@ export const PostCard: React.FC<PostCardProps> = ({ filename }) => {
                 </Tag>
             </div>
 
-            {post.attributes.tags?.map((tag: string, index: number) => <Tag key={index}>{tag}</Tag>)}
-
             <div className="date">
                 <Tag to="/post/?date=">
                     {(new Date(post.attributes.created)).toLocaleDateString()}
                 </Tag>
             </div>
+
+            <div className="tags">
+                {post.attributes.tags?.map((tag: string, index: number) => <Tag key={index}>{tag}</Tag>)}
+            </div>
         </HalftoneCard>
 
-        <div className="info">
+        <div className="post-content">
             <h3>{post.title}</h3>
             <p>{post.description}...</p>
 

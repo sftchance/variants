@@ -1,51 +1,4 @@
-.note {
-  background: rgb(253, 244, 182);
-  position: relative;
-  user-select: none;
-
-  .content {
-    transition: all 0.2s cubic-bezier(0.91, 0, 0.99, 0.44);
-    position: absolute;
-    background: #fff;
-    z-index: 2;
-    top: -15%;
-    right: -90%;
-    width: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    display: block;
-    cursor: auto;
-    user-select: text;
-
-    span {
-      font-size: 14px !important;
-      margin-bottom: 0px !important;
-      align-items: center;
-      text-align: left !important;
-      display: flex;
-
-      img {
-        filter: initial;
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        margin-right: 10px;
-      }
-
-      &:not(:first-child) {
-        margin-top: 10px;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .content.left {
-    left: -85%;
-    right: auto;
-  }
-
+.post-note {
   &:focus,
   &:hover {
     background: darken(rgb(253, 244, 182), 5%);
@@ -66,6 +19,82 @@
       .content {
         opacity: 1;
       }
+    }
+  }
+
+  .note {
+    background: rgb(253, 244, 182);
+  }
+}
+
+.post-note-content {
+  transition: all 0.2s cubic-bezier(0.91, 0, 0.99, 0.44);
+  position: absolute;
+  z-index: 2;
+  top: -15%;
+  right: -50%;
+  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  display: block;
+  cursor: auto;
+  user-select: text;
+  backdrop-filter: blur(10px);
+  background: #fff;
+  opacity: 0;
+  transition: var(--variant-transition);
+
+  span {
+    font-size: 14px !important;
+    margin-bottom: 0px !important;
+    align-items: center;
+    text-align: left !important;
+    display: flex;
+
+    img {
+      filter: initial !important;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px !important;
+      margin-right: 10px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  }
+
+  &.left {
+    left: -50%;
+    right: auto;
+  }
+
+  &.hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 1080px) {
+    & {
+      position: absolute;
+      right: -20px;
+      left: -20px;
+      width: initial;
+      top: -250%;
+      bottom: 115%;
+      z-index: 10;
+      border-radius: 0px;
+      align-content: center;
+      display: flex;
+      background: var(--color-white);
+      backdrop-filter: blur(10px);
+    }
+
+    &.left {
+      left: -20px;
+      right: -20px;
     }
   }
 }

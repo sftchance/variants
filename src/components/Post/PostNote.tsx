@@ -1,3 +1,7 @@
+import { useRef, useState } from "react";
+
+import { motion, useMotionValue, useScroll } from "framer-motion";
+
 import { PostNoteProps } from "../../types";
 
 import "../../style/PostNote.scss";
@@ -10,10 +14,25 @@ export const PostNote: React.FC<React.HTMLAttributes<HTMLElement> & PostNoteProp
     side = "right",
     hover = false
 }) => {
-    return <span className={`note ${hover ? "hover" : ""}`}>
-        {children}
+    const [isHovered, setIsHovered] = useState(false)
 
-        {(author || note) && <span className={`content ${side || ""}`}>
+    const className = `post-note-content ${side || ""} ${isHovered ? "hover" : ""}`
+
+    return <>
+        <span
+            className={`post-note ${hover ? "hover" : ""}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <span className="note">{children}</span>
+        </span>
+
+        {(author || note) && <motion.span
+            className={className}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+        >
             {author && <span>
                 <img src={`/cdn/author/${author}.png/`} alt={author} />
 
@@ -21,6 +40,7 @@ export const PostNote: React.FC<React.HTMLAttributes<HTMLElement> & PostNoteProp
             </span>}
 
             {note && <span>{note}</span>}
-        </span>}
-    </span >
+        </motion.span>}
+    </>
+
 }

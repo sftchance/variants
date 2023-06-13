@@ -22,20 +22,20 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 0px;
+    left: 0px;
     z-index: -2;
-    filter: contrast(10000000000000000000%) brightness(0.85) blur(5px);
+    filter: contrast(10000000000000000000%) brightness(0.85) blur(5px)
+      saturate(0);
     background-size: cover;
     background-position: center;
-    opacity: 0.85;
+    opacity: 1;
     transition: all 0.3s ease-in-out;
   }
 
-  .content {
-    padding: 0px 20px;
-    width: 100%;
-    margin-bottom: 20px;
+  .halftone-content {
+    margin: 20px;
+    height: 100%;
   }
 
   &::after {

@@ -1,5 +1,8 @@
 ☐ Make sure that everything works on mobile.
-    ☐ Author notes will need a mobile-specific style.
+    ✔ Author notes will need a mobile-specific style. @done(23-06-12 20:26)
+    ☐ Home page
+☐ Post images look so wierd now that they are the only thing with a shadow blur :(
+☐ Want to make the fade in animation better.
 ☐ Opengraph images.
     Note: Should use Vercel's Image API to generate the images.
 ☐ Figure out the domain situation.

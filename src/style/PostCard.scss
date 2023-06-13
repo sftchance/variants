@@ -4,29 +4,50 @@
 
 .post-container {
   position: relative;
-  .author {
-    .tag {
-      display: flex;
-      align-items: center;
+  display: grid;
+  grid-template-rows: auto min-content;
+  gap: 10px;
+  width: 100%;
+  overflow: hidden;
 
-      img {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin-right: 10px;
+  .halftone-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr min-content;
+
+    .author {
+      .tag {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+      }
+
+      // margin-bottom: 190px;
+    }
+
+    .date {
+      margin-left: auto;
+      //   position: absolute;
+      top: 0px;
+      right: 0px;
+
+      span {
+        margin-right: 0px;
       }
     }
-    margin-bottom: 190px;
+
+    .tags {
+      display: inline-flex;
+    }
   }
 
-  .date {
-    margin-left: auto;
-    position: absolute;
-    top: 0px;
-    right: 10px;
-  }
-
-  .info {
+  .post-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

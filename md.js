@@ -32,8 +32,8 @@ const processContents = (files, contents) => {
 
         const filename = file.replace("../../vault/", "").replace(".md", "");
 
-        const description = attributes.description || content
-            .slice(0, 240)
+        const description = (attributes.description || content)
+            .slice(0, 180)
             .replace(/[^a-zA-Z0-9 ]/g, "")
             .trim()
 

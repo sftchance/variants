@@ -12,12 +12,6 @@ export const PostImg: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({
     return <div className="post-img">
         <img ref={ref} alt={alt} src={src} {...rest} />
 
-        <div className="blur" style={{
-            backgroundImage: `url(${src})`,
-            width: ref.current?.clientWidth,
-            height: ref.current?.clientHeight,
-        }} />
-
         <span className="caption">{alt}</span>
     </div>
 }

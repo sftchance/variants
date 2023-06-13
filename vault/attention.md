@@ -8,35 +8,13 @@ related: running,black-holes
 
 Constantly surrounded by people that do actions merely looking to get a response, they must be treated like little siblings. A stream of frustration and annoyance, those with an [[Attention Seeking Behavior]] rarely provide any level of impact or perspective.
 
-```javascript
-/// pack the target address and calldata together and sign them.
-let rawData = web3.eth.abi.encodeParameters(
-  ["address", "bytes"],
-  [organization.address, data]
-);
-
-// hash the data.
-let hash = web3.utils.soliditySha3(rawData);
-
-// sign the hash.
-let signature = web3.eth.sign(hash, signer);
-```
-
 Instead, it <author author="nftchance" created="03/02/2023" note="Revolves around a system where they are the sun of their universe rather than ever having realized how to interact with the galaxies beyond them." side="left">revolves around a system where they are the sun of their universe rather than ever having realized how to interact with the galaxies beyond them.</author>
 
 Left to `wonder why` they are not like the rest, they resort to [Attention Seeking Behavior](/post/appetite/) because it's the only outlet that continually gets them a response. Yet, the feat they only receive the response only continues to perpetuate the outcome.
 
----
-
-| Tables        |      Are      |  Cool |
-| ------------- | :-----------: | ----: |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      |   centered    |   $12 |
-| zebra stripes |   are neat    |    $1 |
-
 Although annoying, these people are also a sign that you are reaching the point of escape velocity. For if these people are not around you, you are still miles away from having an audience that is willing to become evangelists.
 
-![Step into the vast world of a decentered identity. Step into the vast world of a decentered identity. Step into the vast world of a decentered identity.](/cdn/decentered.png)
+![Step into the vast world of a decentered identity. Step into the vast world of a decentered identity. Step into the vast world of a decentered identity.](/cdn/place.png)
 
 **How can you easily determine if you are this phase?**
 

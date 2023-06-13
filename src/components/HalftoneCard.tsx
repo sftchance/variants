@@ -16,10 +16,6 @@ export const HalftoneCard: React.FC<React.HTMLAttributes<HTMLDivElement> & Halft
 }) => {
     const ref = useRef<HTMLDivElement>(null);
 
-    const { scrollYProgress: cardOpacity } = useScroll({
-        target: ref, offset: ["-100vh", "-65vh"]
-    })
-
     const { scrollYProgress: effectOpacity } = useScroll({
         target: ref, offset: ["-100px", "90%"]
     });
@@ -37,15 +33,13 @@ export const HalftoneCard: React.FC<React.HTMLAttributes<HTMLDivElement> & Halft
         style={{
             ...backgroundStyle,
             ...style,
-            opacity: cardOpacity,
         }}
     >
         <motion.div className="blur" style={{
             ...backgroundStyle,
-            ...style,
             opacity: effectOpacity,
         }} />
 
-        <div className="content">{body}</div>
+        <div className="halftone-content">{body}</div>
     </motion.div>
 }
