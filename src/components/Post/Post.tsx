@@ -46,15 +46,15 @@ export const Post: React.FC = () => {
                     style={{ width: 920, height: 500, marginInline: "auto" }}
                 />
 
-                {data.attributes.inbound &&
-                    data.attributes.inbound.length > 0 &&
-                    <Link to={`/post/${data.attributes.inbound?.[0]}/?from=${id}`} className="prev">
+                {data.attributes.related &&
+                    data.attributes.related.length > 0 &&
+                    <Link to={`/post/${data.attributes.related?.[0]}/?from=${id}`} className="prev">
                         <FontAwesomeIcon icon={faChevronLeft} />
                     </Link>}
 
-                {data.attributes.related &&
-                    data.attributes.related.length > 0 &&
-                    <Link to={`/post/${data.attributes.related?.[0]}/?from=${id}`} className="next">
+                {data.attributes.inbound &&
+                    data.attributes.inbound.length > 0 &&
+                    <Link to={`/post/${data.attributes.inbound?.[0]}/?from=${id}`} className="next">
                         <FontAwesomeIcon icon={faChevronRight} />
                     </Link>}
             </div>

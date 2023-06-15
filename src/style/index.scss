@@ -104,6 +104,16 @@ a {
   text-decoration: none;
 }
 
+button {
+  border-radius: 2px;
+  font-family: inherit;
+  padding: 8px 16px;
+  background: var(--color-black);
+  border-radius: 2px solid var(--color-black-black);
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
 img.fluid {
   width: 100%;
   height: auto;
@@ -119,18 +129,25 @@ input {
   background: var(--color-white);
   border: var(--variant-border);
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 2px;
   font-family: inherit;
   color: inherit;
-  min-width: 300px;
   transition: var(--variant-transition);
   font-size: 16px;
-  outline: 1px solid transparent;
 
   &:active,
   &:hover,
   &:focus {
     outline: 1px solid var(--color-black-light);
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+
+  input {
+    flex: 1;
   }
 }
 

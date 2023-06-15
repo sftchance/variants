@@ -3,10 +3,12 @@ import { useMemo } from "react";
 import { HeaderLinkProps } from "../types";
 
 import { useScroll } from "../hooks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const HeaderLink: React.FC<React.HTMLAttributes<HTMLButtonElement> & HeaderLinkProps> = ({
     dataId,
     text,
+    icon,
     className = ""
 }) => {
     const { target, onClick } = useScroll();
@@ -23,5 +25,6 @@ export const HeaderLink: React.FC<React.HTMLAttributes<HTMLButtonElement> & Head
 
     return <button className={`link ${isActive ? "active" : ""} ${className}`} data-id={dataId} onClick={onClick}>
         {text}
+        {icon && <FontAwesomeIcon icon={icon} />}
     </button >
 }

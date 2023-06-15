@@ -1,23 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faClipboard } from "@fortawesome/pro-duotone-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
+import { motion, useSpring } from "framer-motion";
+
 import { useClipboard } from "../../hooks";
 import { PostProps } from "../../types";
+import { useScroll } from "framer-motion";
 
 export const PostHeader: React.FC<{
     scrollRef: React.RefObject<HTMLDivElement>;
     data: PostProps
 }> = ({ scrollRef, data }) => {
-    const { copy } = useClipboard({ text: window.location.href });
+    const { scrollYProgress } = useScroll();
 
-    const [scrollPercentage, setScrollPercentage] = useState(0);
+    const { scrollYProgress: refScrollYProgress } = useScroll({ target: scrollRef, offset: ["-100px", "100px"] })
 
     const [copied, setCopied] = useState(false);
 
-    const [isFixed, setIsFixed] = useState(false);
+    const { copy } = useClipboard({ text: window.location.href, onCopy: () => setCopied(true) });
 
     const title = `⚫%20${encodeURIComponent(data.title ?? "")}`
     const authors = data.attributes?.authors?.length === 0
@@ -25,37 +28,16 @@ export const PostHeader: React.FC<{
         : `%20${encodeURIComponent(`by ${data.attributes?.authors?.map(author => `@${author}`).join(" & ")}` ?? "")}`;
     const twitter = `https://twitter.com/intent/tweet?text=${title}${authors}&url=${encodeURIComponent(window.location.href)}`;
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!scrollRef.current) return;
+    return <motion.div className="title" style={{ opacity: refScrollYProgress }}>
+        <motion.div className="percentage" style={{ scaleX: useSpring(scrollYProgress) }} />
 
-            const { top, bottom, height } = scrollRef.current.getBoundingClientRect();
-
-            const percentToBottom = 100 * ((bottom - window.innerHeight) / height);
-
-            const percentage = Math.max(0, Math.min(Math.round(100 - percentToBottom), 100));
-
-            setScrollPercentage(percentage);
-
-            setIsFixed(top <= -40)
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [scrollRef]);
-
-    return <div className={`title ${!isFixed ? "hidden" : ""}`} >
         <p onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             {data.title}
         </p>
 
         <p className="percent">
-            <span>{scrollPercentage}%</span>
-
             <FontAwesomeIcon icon={copied ? faCheck : faClipboard} onClick={() => {
                 copy();
-
                 setCopied(true);
 
                 setTimeout(() => setCopied(false), 1000);
@@ -65,5 +47,5 @@ export const PostHeader: React.FC<{
                 <FontAwesomeIcon icon={faTwitter} />
             </a>
         </p>
-    </div>
+    </motion.div>
 }

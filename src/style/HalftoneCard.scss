@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-end;
   grid-column: span 1;
-  transition: all 0.3s ease-in-out;
+  transition: background-image 0.3s ease-in-out;
   user-select: none;
   overflow: hidden;
   transform: translateZ(0);
@@ -24,13 +24,21 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: -2;
+    z-index: -3;
     filter: contrast(10000000000000000000%) brightness(0.85) blur(5px)
       saturate(0);
     background-size: cover;
     background-position: center;
     opacity: 1;
     transition: all 0.3s ease-in-out;
+
+    &.in {
+      z-index: -2;
+      background: white;
+      background-size: cover;
+      background-position: center;
+      mix-blend-mode: screen;
+    }
   }
 
   .halftone-content {

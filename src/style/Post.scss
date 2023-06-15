@@ -1,4 +1,6 @@
 .post {
+  position: relative;
+
   h1,
   h2,
   h3,
@@ -20,7 +22,6 @@
 
   .title {
     position: fixed;
-    top: 20px;
     z-index: 3;
     text-align: center;
     left: 0;
@@ -34,9 +35,23 @@
     user-select: none;
     display: flex;
     pointer-events: none;
+    top: 69px;
+    background: var(--color-white);
+    padding: 10px;
+    border-bottom: var(--variant-border);
 
     &.hidden {
       opacity: 0;
+    }
+
+    .percentage {
+      height: 2px;
+      background: var(--color-black);
+      left: 0;
+      position: absolute;
+      width: 100%;
+      transform-origin: left;
+      top: -1px;
     }
 
     p {
@@ -45,8 +60,9 @@
       &.percent {
         right: 60px;
         position: fixed;
-        top: 20px;
+        top: 80px;
         cursor: default;
+        font-size: 14px;
 
         span {
           margin-right: 20px;
@@ -60,8 +76,20 @@
     }
 
     svg {
-      margin-left: 10px;
+      margin-left: 20px;
       width: 18px;
+      color: rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      p.percent {
+        top: 24px;
+      }
+
+      .percentage {
+        top: -1px;
+        bottom: initial;
+      }
     }
   }
 

@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
-import { motion, useMotionValue, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { PostNoteProps } from "../../types";
 

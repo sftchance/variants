@@ -1,54 +1,69 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faBars, faRandom, faTimes, faWandMagicSparkles } from "@fortawesome/pro-duotone-svg-icons";
+import { faGithub, faMedium, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { useScroll } from "../hooks";
 
-import { HeaderLink, Tag } from "./";
+import { HeaderLink } from "./";
 
 import "../style/Header.scss"
 
 const HERO_BREAKPOINT = 1200;
 
 export const Header: React.FC = () => {
-    const location = useLocation();
-
-    const queryParams = new URLSearchParams(location.search);
-
-    const { tag, author } = Object.fromEntries(queryParams.entries());
+    const { pathname } = useLocation();
 
     const { target } = useScroll();
 
-    const isHome = location.pathname === "/";
+    const [collapsed, setCollapsed] = useState(false);
 
-    if (!isHome) return <nav>
-        <Link to="/">⚫ CHANCE</Link>
+    const isHome = pathname === "/";
 
-        <Link to="/post">
-            Library
-        </Link>
+    useEffect(() => {
+        setCollapsed(false);
+    }, [pathname])
 
-        <div className="about">
-            {tag && <p><Tag children={tag} /></p>}
+    return <nav className={`${collapsed ? "collapsed" : ""}`}>
+        {isHome ? <HeaderLink text="⚫ CHANCE" dataId="hero" /> : <Link to="/">⚫ CHANCE</Link>}
 
-            {author && <span className="author">
-                <img src={`/cdn/author/${author}.png/`} alt={author} />
+        <div className="links" onClick={() => setCollapsed(false)}>
+            <div className={`about ${target.x <= HERO_BREAKPOINT ? "hidden" : ""} `}>
+                <Link to="/post">
+                    Library
+                    <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
 
-                <strong>{author}</strong>
-            </span>}
+                <HeaderLink text="Variants" dataId="variants" icon={faArrowRight} />
+                <HeaderLink text="Place" dataId="place" icon={faArrowRight} />
+                <HeaderLink text="Monuments" dataId="monuments" icon={faArrowRight} />
+                <HeaderLink text="Decentered" dataId="decentered" icon={faArrowRight} />
+
+                <div className="socials">
+                    <FontAwesomeIcon icon={faTwitter} />
+                    <FontAwesomeIcon icon={faGithub} />
+                    <FontAwesomeIcon icon={faMedium} />
+                    <FontAwesomeIcon icon={faRandom} />
+                </div>
+
+                <div className="easter-egg">
+                    <h5>
+                        <FontAwesomeIcon icon={faWandMagicSparkles} />
+                        Not sure where to start?
+                    </h5>
+                    <p>Variants are the myopic capture of a multi-faceted mimetic-focused digital personality. Follow what draws your attention!</p>
+
+                    <Link to="/post/">
+                        <button>Start here</button>
+                    </Link>
+                </div>
+            </div>
         </div>
-    </nav>
 
-    return <nav>
-        <HeaderLink text="⚫ CHANCE" dataId="hero" />
-
-        <Link to="/post">
-            Library
-        </Link>
-
-        <div className={`about ${target.x <= HERO_BREAKPOINT ? "hidden" : ""} `}>
-            <HeaderLink text="Variants" dataId="variants" />
-            <HeaderLink text="Place" dataId="place" />
-            <HeaderLink text="Monuments" dataId="monuments" />
-            <HeaderLink text="Decentered" dataId="decentered" />
+        <div className="hamburger" onClick={() => setCollapsed(!collapsed)}>
+            <FontAwesomeIcon icon={collapsed ? faTimes : faBars} />
         </div>
     </nav>
 }

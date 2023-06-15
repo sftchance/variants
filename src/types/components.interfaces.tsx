@@ -1,3 +1,5 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 export type CountUpProps = {
     start?: number;
     end?: number;
@@ -16,6 +18,7 @@ export type HalftoneCardProps = {
 export type HeaderLinkProps = {
     dataId?: string;
     text: React.ReactNode;
+    icon?: IconProp;
 }
 
 export type HeatmapProps = {

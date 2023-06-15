@@ -2,14 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { ClipboardProps } from '../types';
 
-export const useClipboard = ({ text }: ClipboardProps) => {
+export const useClipboard = ({ text, onCopy }: ClipboardProps) => {
     const [isCopied, setIsCopied] = useState(false);
 
     const copy = useCallback(() => {
         navigator.clipboard.writeText(text);
 
-        setIsCopied(true);
-    }, [text]);
+        if (onCopy) onCopy();
+    }, [text, onCopy]);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
