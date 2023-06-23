@@ -1,20 +1,46 @@
-import { StaticWrapperSectionProps } from "../../types"
+import { StaticWrapperSectionProps } from "../../types";
 
-import { HalftoneCard } from ".."
+import { HalftoneCard } from "..";
 
 export const Decentered: React.FC<Partial<StaticWrapperSectionProps>> = () => {
-    return <div className="bi-fold">
-        <div>
-            <HalftoneCard src="cdn/decentered.png" style={{ height: 720 }} disableOverlay={true} />
-        </div>
+  return (
+    <div className='bi-fold'>
+      <div>
+        <HalftoneCard
+          src='cdn/decentered.png'
+          style={{ height: 720 }}
+          disableOverlay={true}
+        />
+      </div>
 
-        <div>
-            <h2>MODULATED REALITY WITH DECENTERED IDENTITY.</h2>
+      <div>
+        <h2>THE DECENTERED DIGITAL SELF.</h2>
 
-            <p>CHANCE variants are not scoped as intent of audience, but as a space specifically crafted to cultivate a specific niche and topic. All writings are for me and the few. Are you among those?</p>
-            <p>Ex do dolore proident irure. Laborum elit ex eiusmod dolore reprehenderit quis est pariatur deserunt ea nulla enim. Labore pariatur dolore cupidatat occaecat ipsum pariatur ea pariatur laborum minim magna est. Elit Lorem minim non.</p>
-            <p>Veniam laboris sint voluptate. Id enim deserunt sint ipsum culpa amet ipsum ut in. Ut est Lorem mollit veniam ex enim exercitation amet consectetur aliquip ex tempor culpa qui anim. Ullamco deserunt nostrud nostrud ullamco excepteur laboris consequat. Anim officia nulla ad reprehenderit sunt deserunt ipsum quis adipisicing et.</p>
-            <p>Ex do dolore proident irure. Laborum elit ex eiusmod dolore reprehenderit quis est pariatur deserunt ea nulla enim. Labore pariatur dolore cupidatat occaecat ipsum pariatur ea pariatur laborum minim magna est. Elit Lorem minim non.</p>
-        </div>
+        <p>
+          In our digital age, it's easy to feel like we have to present a
+          polished and consistent image of ourselves to the world, even if that
+          means hiding parts of our personality or interests. However, a person
+          is not defined by their external representation, but rather by the sum
+          of their experiences, values, and beliefs. By embracing the complexity
+          and diversity of our identity, we can tap into new sources of
+          inspiration and connection that can enrich our lives and our work.
+        </p>
+        <p>
+          This concept is based on the idea that we are not just one-dimensional
+          beings, but rather complex and multifaceted individuals with many
+          different passions and talents. Variants can take many different
+          forms, from separate social media accounts for different interests, to
+          distinct websites or blogs for different projects, to specialized
+          newsletters or podcasts for different audiences.
+        </p>
+        <p>
+          The key is to create clear boundaries between these different
+          variants, so that each one can thrive on its own and attract the right
+          people. By doing so, we can avoid the trap of trying to be all things
+          to all people, and instead focus on what really matters to us and our
+          communities.
+        </p>
+      </div>
     </div>
-}
+  );
+};

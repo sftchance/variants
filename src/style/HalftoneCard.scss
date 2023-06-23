@@ -46,6 +46,15 @@
     height: 100%;
   }
 
+  &.overlay {
+    .halftone-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 40px;
+    }
+  }
+
   &::after {
     content: "";
     position: absolute;

@@ -1,29 +1,37 @@
-import { StaticWrapperSectionProps } from "../../types"
+import { StaticWrapperSectionProps } from "../../types";
 
-import { Variant } from "./Variant"
+import { Variant } from "./Variant";
 
 import "../../style/Variants.scss";
 
 export const Variants: React.FC<Partial<StaticWrapperSectionProps>> = () => {
-    const variants = [{
-        name: 'nftchance',
-        created: new Date('09/14/2021'),
-        twitter: true,
-    }, {
-        name: '~~~~~~~',
-        created: new Date('02/27/2022'),
-    }, {
-        name: 'sftchance',
-        created: new Date('03/15/2023'),
-        twitter: true
-    }, {
-        name: '~~~~~~~',
-        created: new Date('04/04/2023'),
-    }]
+  const variants = [
+    {
+      name: "nftchance",
+      created: new Date("09/14/2021"),
+      twitter: true,
+    },
+    {
+      name: "~~~~~~~",
+      created: new Date("02/27/2022"),
+    },
+    {
+      name: "sftchance",
+      created: new Date("03/15/2023"),
+      twitter: true,
+    },
+    {
+      name: "madewithcode",
+      created: new Date("06/20/2023"),
+      twitter: "designedcode",
+    },
+  ];
 
-    return <div className="variants">
-        {variants.map((variant, index) => {
-            return <Variant key={index}  {...variant} />
-        })}
+  return (
+    <div className='variants'>
+      {variants.map((variant, index) => {
+        return <Variant key={index} {...variant} />;
+      })}
     </div>
-}
+  );
+};
