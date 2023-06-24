@@ -1,76 +1,76 @@
 .post {
-  min-height: 300px;
+	min-height: 300px;
 }
 
 .post-container {
-  position: relative;
-  display: grid;
-  grid-template-rows: auto min-content;
-  gap: 10px;
-  width: 100%;
-  overflow: hidden;
+	position: relative;
+	display: grid;
+	grid-template-rows: auto min-content;
+	gap: 10px;
+	width: 100%;
+	overflow: hidden;
 
-  .halftone-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr min-content;
+	.halftone-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr min-content;
 
-    .author {
-      .tag {
-        display: flex;
-        align-items: center;
+		.author {
+			.tag {
+				display: flex;
+				align-items: center;
 
-        img {
-          width: 15px;
-          height: 15px;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-      }
+				img {
+					width: 15px;
+					height: 15px;
+					border-radius: 50%;
+					margin-right: 10px;
+				}
+			}
 
-      // margin-bottom: 190px;
-    }
+			// margin-bottom: 190px;
+		}
 
-    .date {
-      margin-left: auto;
-      //   position: absolute;
-      top: 0px;
-      right: 0px;
+		.date {
+			margin-left: auto;
+			//   position: absolute;
+			top: 0px;
+			right: 0px;
 
-      span {
-        margin-right: 0px;
-      }
-    }
+			span {
+				margin-right: 0px;
+			}
+		}
 
-    .tags {
-      display: inline-flex;
-    }
-  }
+		.tags {
+			display: inline-flex;
+		}
+	}
 
-  .post-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+	.post-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
 
-    h3 {
-      margin-bottom: 10px !important;
-      max-width: 100%;
-    }
+		h3 {
+			margin-bottom: 10px !important;
+			max-width: 100%;
+		}
 
-    p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      text-align: justify;
-    }
+		p {
+			font-size: 16px;
+			margin-bottom: 20px;
+			text-align: justify;
+		}
 
-    a {
-      font-weight: 700;
+		a {
+			font-weight: 700;
 
-      svg {
-        color: var(--color-black);
-        margin-left: 10px;
-        font-size: 12px;
-      }
-    }
-  }
+			svg {
+				color: var(--color-black);
+				margin-left: 10px;
+				font-size: 12px;
+			}
+		}
+	}
 }

@@ -1,37 +1,37 @@
 .post-img {
-  position: relative;
+	position: relative;
 
-  img {
-    margin-block: 20px;
-    opacity: 0;
-    position: absolute;
-  }
+	img {
+		margin-block: 20px;
+		opacity: 0;
+		position: absolute;
+	}
 
-  .blur {
-    filter: blur(100px);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    transform: scale(1.1);
-    top: 0;
-    z-index: -2;
-  }
+	.blur {
+		filter: blur(100px);
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		transform: scale(1.1);
+		top: 0;
+		z-index: -2;
+	}
 
-  .halftone {
-    max-width: 100%;
-  }
+	.halftone {
+		max-width: 100%;
+	}
 
-  .caption {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 14px !important;
-    text-align: center !important;
-    max-width: 85%;
-    margin-inline: auto;
-    margin-top: 20px;
-    margin-bottom: 40px !important;
-  }
+	.caption {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: rgba(0, 0, 0, 0.65);
+		font-size: 14px !important;
+		text-align: center !important;
+		max-width: 85%;
+		margin-inline: auto;
+		margin-top: 20px;
+		margin-bottom: 40px !important;
+	}
 }

@@ -1,8 +1,10 @@
 ☐ Make sure that everything works on mobile.
     ☐ Navbar
     ☐ Home page
+    ☐ Images are super broken.
 ☐ Opengraph images.
-    Note: Should use Vercel's Image API to generate the images.
+    ✘ Note: Should use Vercel's Image API to generate the images. @cancelled(23-06-23 18:28)
+    ☐ Just use static images.
 ☐ Figure out the domain situation.
 
 Archive:

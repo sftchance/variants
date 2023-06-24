@@ -1,22 +1,22 @@
 .container {
-  margin-top: 120px;
-  padding-inline: 60px;
+	margin-top: 120px;
+	padding-inline: 60px;
 
-  &.thin {
-    .img {
-      max-width: 1080px;
-      margin-inline: auto;
-      margin-bottom: 40px;
-      display: grid;
-    }
+	&.thin {
+		.img {
+			max-width: 1080px;
+			margin-inline: auto;
+			margin-bottom: 40px;
+			display: grid;
+		}
 
-    .content {
-      max-width: 720px;
-      margin-inline: auto;
-    }
-  }
+		.content {
+			max-width: 720px;
+			margin-inline: auto;
+		}
+	}
 
-  @media (max-width: 768px) {
-    padding-inline: 20px;
-  }
+	@media (max-width: 768px) {
+		padding-inline: 20px;
+	}
 }

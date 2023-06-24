@@ -15,7 +15,7 @@ npm run dev
 
 When creating a CDN image it is to be done with (The images provided must be preformatted):
 
-- Saturation: 0%
-- Image effect: Halftone
-- Overlay: `linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.95), rgba(255,255,255,1))`
-- Dimensions: 1920x1080
+-   Saturation: 0%
+-   Image effect: Halftone
+-   Overlay: `linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.95), rgba(255,255,255,1))`
+-   Dimensions: 1920x1080

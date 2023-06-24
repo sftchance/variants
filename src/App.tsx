@@ -1,20 +1,24 @@
-import { Route, Routes } from 'react-router-dom'
-import { Copyright, Meta, Post, Posts, ScrollToTop } from './components'
+import { Route, Routes } from "react-router-dom"
+import { Copyright, Meta, Post, Posts, ScrollToTop } from "./components"
 
 function App() {
-    return <>
-        <Meta title="VARIANTS"
-            description="Discover a diverse collection of content, tools, and ideas curated by the Variants of CHANCE. Explore the latest releases and immerse yourself in the world of creativity and abstract discovery." />
+	return (
+		<>
+			<Meta
+				title="VARIANTS"
+				description="Discover a diverse collection of content, tools, and ideas curated by the Variants of CHANCE. Explore the latest releases and immerse yourself in the world of creativity and abstract discovery."
+			/>
 
-        <ScrollToTop />
+			<ScrollToTop />
 
-        <Routes location={location} key={location.pathname}>
-            <Route path="post/" element={<Posts />} />
-            <Route path="post/:id/" element={<Post />} />
-        </Routes>
+			<Routes location={location} key={location.pathname}>
+				<Route path="post/" element={<Posts />} />
+				<Route path="post/:id/" element={<Post />} />
+			</Routes>
 
-        <Copyright />
-    </>
+			<Copyright />
+		</>
+	)
 }
 
 export default App

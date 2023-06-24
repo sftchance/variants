@@ -1,45 +1,45 @@
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  padding-inline: 60px;
-  border-top: var(--variant-border);
-  background: var(--color-white);
-  z-index: 0;
-  display: flex;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	padding-inline: 60px;
+	border-top: var(--variant-border);
+	background: var(--color-white);
+	z-index: 0;
+	display: flex;
 
-  .controls {
-    display: flex;
-    gap: 20px;
-    user-select: none;
+	.controls {
+		display: flex;
+		gap: 20px;
+		user-select: none;
 
-    p {
-      width: 24px;
-    }
+		p {
+			width: 24px;
+		}
 
-    & p:hover,
-    & p:focus {
-      cursor: pointer;
-      color: var(--color-black-dark);
-    }
-  }
+		& p:hover,
+		& p:focus {
+			cursor: pointer;
+			color: var(--color-black-dark);
+		}
+	}
 
-  .info {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: flex-end;
-    flex: 1;
+	.info {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+		align-items: flex-end;
+		flex: 1;
 
-    p {
-      font-feature-settings: "tnum";
-    }
-  }
+		p {
+			font-feature-settings: "tnum";
+		}
+	}
 
-  .controls.hidden,
-  .info.hidden {
-    display: none;
-  }
+	.controls.hidden,
+	.info.hidden {
+		display: none;
+	}
 }

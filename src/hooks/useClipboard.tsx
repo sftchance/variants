@@ -1,25 +1,25 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from "react"
 
-import { ClipboardProps } from '../types';
+import { ClipboardProps } from "../types"
 
 export const useClipboard = ({ text, onCopy }: ClipboardProps) => {
-    const [isCopied, setIsCopied] = useState(false);
+	const [isCopied, setIsCopied] = useState(false)
 
-    const copy = useCallback(() => {
-        navigator.clipboard.writeText(text);
+	const copy = useCallback(() => {
+		navigator.clipboard.writeText(text)
 
-        if (onCopy) onCopy();
-    }, [text, onCopy]);
+		if (onCopy) onCopy()
+	}, [text, onCopy])
 
-    useEffect(() => {
-        let timeout: NodeJS.Timeout;
+	useEffect(() => {
+		let timeout: NodeJS.Timeout
 
-        if (isCopied) {
-            timeout = setTimeout(() => setIsCopied(false), 1000);
-        }
+		if (isCopied) {
+			timeout = setTimeout(() => setIsCopied(false), 1000)
+		}
 
-        return () => clearTimeout(timeout);
-    }, [isCopied]);
+		return () => clearTimeout(timeout)
+	}, [isCopied])
 
-    return { copy, isCopied };
+	return { copy, isCopied }
 }

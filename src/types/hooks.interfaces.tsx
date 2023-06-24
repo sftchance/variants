@@ -1,4 +1,4 @@
 export type ClipboardProps = {
-    text: string;
-    onCopy?: () => void;
+	text: string
+	onCopy?: () => void
 }

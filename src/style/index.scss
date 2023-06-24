@@ -1,50 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 :root {
-  font-family: "Inria Serif", serif;
-  line-height: 1.5;
-  font-weight: 400;
+	font-family: "Inria Serif", serif;
+	line-height: 1.5;
+	font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.85);
-  background-color: #fff;
+	color-scheme: light dark;
+	color: rgba(0, 0, 0, 0.85);
+	background-color: #fff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 
-  --color-white: rgba(255, 255, 255, 1);
-  --color-white-dark: rgba(255, 255, 255, 0.65);
-  --color-white-light: rgba(255, 255, 255, 0.05);
-  --color-white-transparent: rgba(255, 255, 255, 0);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-black-dark: rgba(0, 0, 0, 0.65);
-  --color-black-light: rgba(0, 0, 0, 0.05);
-  --color-black-transparent: rgba(0, 0, 0, 0);
+	--color-white: rgba(255, 255, 255, 1);
+	--color-white-dark: rgba(255, 255, 255, 0.65);
+	--color-white-light: rgba(255, 255, 255, 0.05);
+	--color-white-transparent: rgba(255, 255, 255, 0);
+	--color-black: rgba(0, 0, 0, 1);
+	--color-black-dark: rgba(0, 0, 0, 0.65);
+	--color-black-light: rgba(0, 0, 0, 0.05);
+	--color-black-transparent: rgba(0, 0, 0, 0);
 
-  --variant-border: 2px solid var(--color-black-light);
-  --variant-transition: all 0.2s cubic-bezier(0.91, 0, 0.99, 0.44);
+	--variant-border: 2px solid var(--color-black-light);
+	--variant-transition: all 0.2s cubic-bezier(0.91, 0, 0.99, 0.44);
 }
 
 *,
 html,
 body {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  box-sizing: border-box;
-  text-align: left;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	box-sizing: border-box;
+	text-align: left;
 
-  ::selection {
-    background: rgba(0, 0, 0, 0.15);
-  }
+	::selection {
+		background: rgba(0, 0, 0, 0.15);
+	}
 }
 
 html {
-  overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 h1,
@@ -53,133 +53,133 @@ h3,
 h4,
 h5,
 h6 {
-  color: rgba(0, 0, 0, 1);
-  font-style: italic;
-  margin-bottom: 20px;
+	color: rgba(0, 0, 0, 1);
+	font-style: italic;
+	margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 6rem;
+	font-size: 6rem;
 }
 
 h2 {
-  font-size: 4rem;
+	font-size: 4rem;
 }
 
 h3 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
 h6 {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 p {
-  font-size: 1rem;
-  color: var(--color-black-dark);
+	font-size: 1rem;
+	color: var(--color-black-dark);
 }
 
 p.lead {
-  font-size: 24px;
+	font-size: 24px;
 }
 
 p.context {
-  color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.45);
 }
 
 .bi-fold p {
-  text-align: justify;
+	text-align: justify;
 }
 
 a {
-  color: var(--color-black);
-  text-decoration: none;
+	color: var(--color-black);
+	text-decoration: none;
 }
 
 button {
-  border-radius: 2px;
-  font-family: inherit;
-  padding: 8px 16px;
-  background: var(--color-black);
-  border-radius: 2px solid var(--color-black-black);
-  color: var(--color-white);
-  font-size: 1rem;
+	border-radius: 2px;
+	font-family: inherit;
+	padding: 8px 16px;
+	background: var(--color-black);
+	border-radius: 2px solid var(--color-black-black);
+	color: var(--color-white);
+	font-size: 1rem;
 }
 
 img.fluid {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
 }
 
 hr {
-  border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  margin: 40px 0;
+	border: none;
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	margin: 40px 0;
 }
 
 input {
-  background: var(--color-white);
-  border: var(--variant-border);
-  padding: 8px 16px;
-  border-radius: 2px;
-  font-family: inherit;
-  color: inherit;
-  transition: var(--variant-transition);
-  font-size: 16px;
+	background: var(--color-white);
+	border: var(--variant-border);
+	padding: 8px 16px;
+	border-radius: 2px;
+	font-family: inherit;
+	color: inherit;
+	transition: var(--variant-transition);
+	font-size: 16px;
 
-  &:active,
-  &:hover,
-  &:focus {
-    outline: 1px solid var(--color-black-light);
-  }
+	&:active,
+	&:hover,
+	&:focus {
+		outline: 1px solid var(--color-black-light);
+	}
 }
 
 .form-group {
-  margin-bottom: 20px;
-  display: flex;
+	margin-bottom: 20px;
+	display: flex;
 
-  input {
-    flex: 1;
-  }
+	input {
+		flex: 1;
+	}
 }
 
 svg {
-  transition: var(--variant-transition);
+	transition: var(--variant-transition);
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-  }
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.05);
+	}
 }
 
 .placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.15);
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.15);
 }
 
 .bi-fold {
-  display: grid;
-  grid-template-columns: repeat(2, 675px);
-  word-break: break-word;
-  gap: 80px;
-  align-items: center;
+	display: grid;
+	grid-template-columns: repeat(2, 675px);
+	word-break: break-word;
+	gap: 80px;
+	align-items: center;
 }
 
 .bi-fold img {
-  margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 .bi-fold p {
-  font-size: 18px;
-  margin-bottom: 20px;
-  max-width: 705px;
+	font-size: 18px;
+	margin-bottom: 20px;
+	max-width: 705px;
 }

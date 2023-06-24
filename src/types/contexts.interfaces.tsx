@@ -1,10 +1,10 @@
 export type TargetProps = {
-    x: number;
-    type: "scroll" | "click";
+	x: number
+	type: "scroll" | "click"
 }
 
 export type ScrollContextProps = {
-    ref?: React.RefObject<HTMLDivElement>;
-    target: TargetProps;
-    onTarget: (x: number, type?: "scroll" | "click") => void;
+	ref?: React.RefObject<HTMLDivElement>
+	target: TargetProps
+	onTarget: (x: number, type?: "scroll" | "click") => void
 }

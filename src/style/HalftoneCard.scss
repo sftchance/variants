@@ -1,97 +1,111 @@
 .halftone {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  grid-column: span 1;
-  transition: background-image 0.3s ease-in-out;
-  user-select: none;
-  overflow: hidden;
-  transform: translateZ(0);
-  filter: opacity(1);
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	grid-column: span 1;
+	transition: background-image 0.3s ease-in-out;
+	user-select: none;
+	overflow: hidden;
+	transform: translateZ(0);
 
-  * {
-    margin-bottom: 0px;
-    position: relative;
-    z-index: 2;
-  }
+	filter: opacity(1) grayscale(100%);
+	-webkit-filter: opacity(1) grayscale(100%);
+	-moz-filter: opacity(1) grayscale(100%);
+	-o-filter: opacity(1) grayscale(100%);
+	-ms-filter: opacity(1) grayscale(100%);
 
-  .blur {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -3;
-    filter: contrast(10000000000000000000%) brightness(0.85) blur(5px)
-      saturate(0);
-    background-size: cover;
-    background-position: center;
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
+	* {
+		margin-bottom: 0px;
+		position: relative;
+		z-index: 2;
+	}
 
-    &.in {
-      z-index: -2;
-      background: white;
-      background-size: cover;
-      background-position: center;
-      mix-blend-mode: screen;
-    }
-  }
+	.blur {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: -3;
+		filter: contrast(10000000000000000000%) brightness(0.85) blur(10px) saturate(0);
+		-webkit-filter: contrast(10000000000000000000%) brightness(0.85) blur(10px) saturate(0);
+		-moz-filter: contrast(10000000000000000000%) brightness(0.85) blur(10px) saturate(0);
+		-o-filter: contrast(10000000000000000000%) brightness(0.85) blur(10px) saturate(0);
+		-ms-filter: contrast(10000000000000000000%) brightness(0.85) blur(10px) saturate(0);
+		background-size: cover;
+		background-position: center;
+		opacity: 1;
 
-  .halftone-content {
-    margin: 20px;
-    height: 100%;
-  }
+		&.in {
+			z-index: -2;
+			background: white;
+			background-size: cover;
+			background-position: center;
+			mix-blend-mode: screen;
+		}
+	}
 
-  &.overlay {
-    .halftone-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      margin: 40px;
-    }
-  }
+	.halftone-content {
+		margin: 20px;
+		height: 100%;
+	}
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: -500%;
-    left: -500%;
-    right: -500%;
-    bottom: -500%;
-    background-blend-mode: multiply;
-    background: radial-gradient(4px 4px, cyan, white),
-      radial-gradient(4px 4px, magenta, white),
-      radial-gradient(4px 4px, yellow, white);
-    background-size: 4px 4px;
-    background-position: 0 -3px, -2px 0, 2px 0;
-    mix-blend-mode: screen;
-    pointer-events: none;
-    transition: 1s ease-in-out transform;
-    z-index: -2;
-    transform: rotate(42.5deg);
-    backdrop-filter: saturate(0) contrast(10000000000000000000%);
-    filter: saturate(0) brightness(0.85) contrast(10000000000000000000%);
-  }
+	&.overlay {
+		.halftone-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			margin: 40px;
+		}
+	}
 
-  &.overlay::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(
-      195deg,
-      rgba(255, 255, 255, 0),
-      rgb(255, 255, 255, 0.9),
-      rgb(255, 255, 255, 0.975)
-    );
-    transform: rotate(0deg);
-    z-index: -1;
-  }
+	&::after {
+		content: "";
+		position: absolute;
+		top: -500%;
+		left: -500%;
+		right: -500%;
+		bottom: -500%;
+		background-blend-mode: multiply;
+		background: radial-gradient(4px 4px, cyan, white), radial-gradient(4px 4px, magenta, white),
+			radial-gradient(4px 4px, yellow, white);
+		background-size: 4px 4px;
+		background-position: 0 -3px, -2px 0, 2px 0;
+		mix-blend-mode: screen;
+		pointer-events: none;
+		transition: 1s ease-in-out transform;
+		z-index: -2;
+		transform: rotate(42.5deg);
+
+		backdrop-filter: contrast(100%);
+		-webkit-backdrop-filter: contrast(100%);
+		-moz-backdrop-filter: contrast(100%);
+		-o-backdrop-filter: contrast(100%);
+
+		filter: saturate(0) brightness(0.85) contrast(500%);
+		-moz-filter: saturate(0) brightness(0.85) contrast(500%);
+		-o-filter: saturate(0) brightness(0.85) contrast(500%);
+		-ms-filter: saturate(0) brightness(0.85) contrast(500%);
+	}
+
+	&.overlay::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-image: linear-gradient(
+			195deg,
+			rgba(255, 255, 255, 0),
+			rgb(255, 255, 255, 0.9),
+			rgb(255, 255, 255, 0.975)
+		);
+		transform: rotate(0deg);
+		z-index: -1;
+	}
 }

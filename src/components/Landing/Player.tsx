@@ -1,82 +1,92 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faPlay, faPause } from "@fortawesome/pro-duotone-svg-icons";
+import { faChevronLeft, faChevronRight, faPause, faPlay } from "@fortawesome/pro-duotone-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { PLAYER } from "../../constants";
+import { PLAYER } from "../../constants"
 
-import { useScroll } from "../../hooks";
+import { useScroll } from "../../hooks"
 
-import { verboseTimestamp } from "../../utils";
+import { verboseTimestamp } from "../../utils"
 
-import "../../style/Player.scss";
+import "../../style/Player.scss"
 
-const BREAKPOINT = 1200;
+const BREAKPOINT = 1200
 
 export const Player: React.FC = () => {
-    const { target } = useScroll();
+	const { target } = useScroll()
 
-    const ref = useRef<HTMLAudioElement>(null);
-    const animationRef = useRef<number>(0);
+	const ref = useRef<HTMLAudioElement>(null)
+	const animationRef = useRef<number>(0)
 
-    const [player, setPlayer] = useState(PLAYER);
+	const [player, setPlayer] = useState(PLAYER)
 
-    const time = verboseTimestamp(player.time);
-    const duration = verboseTimestamp(ref.current?.duration || 0);
+	const time = verboseTimestamp(player.time)
+	const duration = verboseTimestamp(ref.current?.duration || 0)
 
-    const onSongChange = (direction: number) => {
-        const { track, tracks } = player;
+	const onSongChange = (direction: number) => {
+		const { track, tracks } = player
 
-        let nextTrack = track + direction;
+		let nextTrack = track + direction
 
-        if (nextTrack < 0 || nextTrack >= tracks.length) {
-            nextTrack = nextTrack < 0 ? tracks.length - 1 : 0;
-        }
+		if (nextTrack < 0 || nextTrack >= tracks.length) {
+			nextTrack = nextTrack < 0 ? tracks.length - 1 : 0
+		}
 
-        setPlayer({ ...player, track: nextTrack });
-    }
+		setPlayer({ ...player, track: nextTrack })
+	}
 
-    const repeat = useCallback(() => {
-        // const { current } = ref;
-        // const { current: animationCurrent } = animationRef;
+	const repeat = useCallback(() => {
+		// const { current } = ref;
+		// const { current: animationCurrent } = animationRef;
 
-        // if (!current || !animationCurrent) return;
+		// if (!current || !animationCurrent) return;
 
-        if (!ref.current) return
+		if (!ref.current) return
 
-        setPlayer({ ...player, time: ref.current.currentTime || 0 });
-    }, [ref, player]);
+		setPlayer({ ...player, time: ref.current.currentTime || 0 })
+	}, [ref, player])
 
-    useEffect(() => {
-        const { current } = ref;
+	useEffect(() => {
+		const { current } = ref
 
-        if (!current) return;
+		if (!current) return
 
-        if (player.playing) {
-            current.play();
-        } else {
-            current.pause();
-        }
+		if (player.playing) {
+			current.play()
+		} else {
+			current.pause()
+		}
 
-        animationRef.current = requestAnimationFrame(repeat);
-    }, [player, ref, repeat])
+		animationRef.current = requestAnimationFrame(repeat)
+	}, [player, ref, repeat])
 
-    return <footer>
-        <div className={`controls ${target.x > BREAKPOINT ? "hidden" : ""}`}>
-            <audio src={player.tracks[player.track].src} ref={ref} onEnded={() => onSongChange(1)} />
+	return (
+		<footer>
+			<div className={`controls ${target.x > BREAKPOINT ? "hidden" : ""}`}>
+				<audio src={player.tracks[player.track].src} ref={ref} onEnded={() => onSongChange(1)} />
 
-            <p onClick={() => onSongChange(-1)}><FontAwesomeIcon icon={faChevronLeft} /></p>
+				<p onClick={() => onSongChange(-1)}>
+					<FontAwesomeIcon icon={faChevronLeft} />
+				</p>
 
-            <p onClick={() => setPlayer({ ...player, playing: !player.playing })}>
-                <FontAwesomeIcon icon={player.playing ? faPause : faPlay} />
-            </p>
+				<p onClick={() => setPlayer({ ...player, playing: !player.playing })}>
+					<FontAwesomeIcon icon={player.playing ? faPause : faPlay} />
+				</p>
 
-            <p onClick={() => onSongChange(1)}><FontAwesomeIcon icon={faChevronRight} /></p>
-        </div >
+				<p onClick={() => onSongChange(1)}>
+					<FontAwesomeIcon icon={faChevronRight} />
+				</p>
+			</div>
 
-        <div className={`info ${target.x <= BREAKPOINT ? "hidden" : ""}`}>
-            <p><strong>{time} - {duration}</strong></p>
-            <p>{player.tracks[player.track].title}</p>
-        </div>
-    </footer >
+			<div className={`info ${target.x <= BREAKPOINT ? "hidden" : ""}`}>
+				<p>
+					<strong>
+						{time} - {duration}
+					</strong>
+				</p>
+				<p>{player.tracks[player.track].title}</p>
+			</div>
+		</footer>
+	)
 }

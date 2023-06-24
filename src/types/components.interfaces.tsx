@@ -1,92 +1,92 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 export type CountUpProps = {
-  start?: number;
-  end?: number;
-  duration?: number;
-  prepend?: string;
-  append?: string;
-};
+	start?: number
+	end?: number
+	duration?: number
+	prepend?: string
+	append?: string
+}
 
 export type HalftoneCardProps = {
-  src?: string;
-  title?: string;
-  description?: string;
-  disableOverlay?: boolean;
-};
+	src?: string
+	title?: string
+	description?: string
+	disableOverlay?: boolean
+}
 
 export type HeaderLinkProps = {
-  dataId?: string;
-  text: React.ReactNode;
-  icon?: IconProp;
-};
+	dataId?: string
+	text: React.ReactNode
+	icon?: IconProp
+}
 
 export type HeatmapProps = {
-  date: string;
-  posts: string[];
-  count: number;
-};
+	date: string
+	posts: string[]
+	count: number
+}
 
 export type MetaProps = {
-  title: string;
-  description?: string;
-  image?: string;
-  [key: string]: string | undefined;
-};
+	title: string
+	description?: string
+	image?: string
+	[key: string]: string | undefined
+}
 
 export type PostProps = {
-  filename: string;
-  content: string;
-  title: string;
-  description: string;
-  image: string;
-  attributes: {
-    created: string;
-    readTime: number;
-    authors: string[];
-    tags?: string[];
-    related?: string[];
-    inbound?: string[];
-    [key: string]: string | string[] | number | undefined;
-  };
-};
+	filename: string
+	content: string
+	title: string
+	description: string
+	image: string
+	attributes: {
+		created: string
+		readTime: number
+		authors: string[]
+		tags?: string[]
+		related?: string[]
+		inbound?: string[]
+		[key: string]: string | string[] | number | undefined
+	}
+}
 
 export type PostCardProps = {
-  filename: string;
-};
+	filename: string
+}
 
 export type PostCodeProps = {
-  children: string[];
-  language?: string;
-};
+	children: string[]
+	language?: string
+}
 
 export type PostMarkdownProps = {
-  children: string;
-};
+	children: string
+}
 
 export type PostNoteProps = {
-  author?: string;
-  note: string;
-  created?: string;
-  side?: string;
-  hover?: boolean;
-};
+	author?: string
+	note: string
+	created?: string
+	side?: string
+	hover?: boolean
+}
 
 export type StaticWrapperSectionProps = React.ReactElement & {
-  distanceToCenter?: boolean;
-  fit?: boolean;
-  id?: string;
-  padded?: boolean;
-};
+	distanceToCenter?: boolean
+	fit?: boolean
+	id?: string
+	padded?: boolean
+}
 
-export type StaticWrapperProps = { children: StaticWrapperSectionProps[] };
+export type StaticWrapperProps = { children: StaticWrapperSectionProps[] }
 
 export type TagProps = {
-  to?: string;
-};
+	to?: string
+}
 
 export type VariantProps = {
-  name: string;
-  created: Date;
-  twitter?: boolean | string;
-};
+	name: string
+	created: Date
+	twitter?: boolean | string
+}

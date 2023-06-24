@@ -1,18 +1,18 @@
 .tag {
-  background: var(--color-black);
-  border: var(--variant-border);
-  color: var(--color-white);
-  padding: 4px 8px;
-  border-radius: 2px;
-  font-weight: 300;
-  width: fit-content;
-  display: inline-flex;
-  margin-right: 10px;
-  transition: var(--variant-transition);
-  font-size: 14px;
+	background: var(--color-black);
+	border: var(--variant-border);
+	color: var(--color-white);
+	padding: 4px 8px;
+	border-radius: 2px;
+	font-weight: 300;
+	width: fit-content;
+	display: inline-flex;
+	margin-right: 10px;
+	transition: var(--variant-transition);
+	font-size: 14px;
 
-  &:focus,
-  &:hover {
-    background: var(--color-black-dark);
-  }
+	&:focus,
+	&:hover {
+		background: var(--color-black-dark);
+	}
 }

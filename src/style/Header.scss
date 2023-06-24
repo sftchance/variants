@@ -1,201 +1,196 @@
 nav {
-  padding: 20px;
-  padding-inline: 60px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: grid;
-  grid-template-columns: max-content auto;
-  gap: 40px;
-  background: var(--color-white);
-  border-bottom: var(--variant-border);
-  z-index: 3;
-  align-items: center;
-  align-content: center;
+	padding: 20px;
+	padding-inline: 60px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: grid;
+	grid-template-columns: max-content auto;
+	gap: 40px;
+	background: var(--color-white);
+	border-bottom: var(--variant-border);
+	z-index: 3;
+	align-items: center;
+	align-content: center;
 
-  .links {
-    width: 100%;
-    .about {
-      display: flex;
-      gap: 20px;
+	.links {
+		width: 100%;
+		.about {
+			display: flex;
+			gap: 20px;
 
-      a {
-        margin-right: auto;
-      }
+			a {
+				margin-right: auto;
+			}
 
-      a,
-      .link {
-        height: min-content;
+			a,
+			.link {
+				height: min-content;
 
-        &.hidden {
-          &:not(:first-child) {
-            display: none;
-          }
-        }
+				&.hidden {
+					&:not(:first-child) {
+						display: none;
+					}
+				}
 
-        svg {
-          display: none;
-        }
-      }
+				svg {
+					display: none;
+				}
+			}
 
-      .easter-egg,
-      .socials {
-        display: none;
-      }
-    }
-  }
+			.easter-egg,
+			.socials {
+				display: none;
+			}
+		}
+	}
 
-  .hamburger {
-    display: none;
-    margin-left: auto;
-    color: rgba(0, 0, 0, 0.35);
-  }
+	.hamburger {
+		display: none;
+		margin-left: auto;
+		color: rgba(0, 0, 0, 0.35);
+	}
 
-  a,
-  .link {
-    display: inline-flex;
-    background: none !important;
-    border: none;
-    padding: 0 !important;
-    color: rgba(0, 0, 0, 1);
-    font-weight: 700;
-    font-style: italic;
-    font-family: inherit;
-    font-size: 18px;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    z-index: 10;
-    align-items: center;
-    width: max-content;
+	a,
+	.link {
+		display: inline-flex;
+		background: none !important;
+		border: none;
+		padding: 0 !important;
+		color: rgba(0, 0, 0, 1);
+		font-weight: 700;
+		font-style: italic;
+		font-family: inherit;
+		font-size: 18px;
+		text-decoration: none;
+		cursor: pointer;
+		position: relative;
+		z-index: 10;
+		align-items: center;
+		width: max-content;
 
-    svg {
-      margin-right: 10px;
-    }
+		svg {
+			margin-right: 10px;
+		}
 
-    &:hover,
-    &:focus {
-      color: rgba(0, 0, 0, 0.65);
-    }
+		&:hover,
+		&:focus {
+			color: rgba(0, 0, 0, 0.65);
+		}
 
-    &::after {
-      position: absolute;
-      content: "";
-      display: block;
-      width: 0%;
-      bottom: -5px;
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0)
-      );
-      transition: all 0.3s ease-in-out;
-    }
+		&::after {
+			position: absolute;
+			content: "";
+			display: block;
+			width: 0%;
+			bottom: -5px;
+			height: 1px;
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+			transition: all 0.3s ease-in-out;
+		}
 
-    &.active {
-      color: #000;
-    }
+		&.active {
+			color: #000;
+		}
 
-    &.active::after {
-      width: 100%;
-    }
-  }
+		&.active::after {
+			width: 100%;
+		}
+	}
 
-  @media (max-width: 768px) {
-    padding-inline: 20px;
-    grid-template-rows: 1fr;
+	@media (max-width: 768px) {
+		padding-inline: 20px;
+		grid-template-rows: 1fr;
 
-    .hamburger {
-      display: block;
-    }
+		.hamburger {
+			display: block;
+		}
 
-    .links {
-      display: none;
+		.links {
+			display: none;
 
-      a,
-      .link {
-        width: 100%;
-        color: var(--color-black);
-        font-weight: 700;
-        font-style: italic;
+			a,
+			.link {
+				width: 100%;
+				color: var(--color-black);
+				font-weight: 700;
+				font-style: italic;
 
-        &::after {
-          background: none;
-        }
+				&::after {
+					background: none;
+				}
 
-        svg {
-          margin-left: auto;
-          margin-right: 0px;
-          color: rgba(0, 0, 0, 0.35);
-          font-size: 14px;
-          text-align: right;
-          display: initial !important;
-        }
-      }
-    }
+				svg {
+					margin-left: auto;
+					margin-right: 0px;
+					color: rgba(0, 0, 0, 0.35);
+					font-size: 14px;
+					text-align: right;
+					display: initial !important;
+				}
+			}
+		}
 
-    .about {
-      margin-left: auto;
-      display: grid;
-      gap: 40px;
-      grid-template-rows: repeat(6, auto);
-      min-height: calc(100% - 65px);
-    }
+		.about {
+			margin-left: auto;
+			display: grid;
+			gap: 40px;
+			grid-template-rows: repeat(6, auto);
+			min-height: calc(100% - 65px);
+		}
 
-    .socials {
-      display: flex !important;
-      justify-content: space-between;
-      color: rgba(0, 0, 0, 0.35);
-      margin-block: 40px;
-    }
+		.socials {
+			display: flex !important;
+			justify-content: space-between;
+			color: rgba(0, 0, 0, 0.35);
+			margin-block: 40px;
+		}
 
-    .easter-egg {
-      background: var(--color-black-light);
-      border-radius: 2px;
-      display: block !important;
-      padding: 40px;
-      max-height: 300px;
-      margin-bottom: 0px;
+		.easter-egg {
+			background: var(--color-black-light);
+			border-radius: 2px;
+			display: block !important;
+			padding: 40px;
+			max-height: 300px;
+			margin-bottom: 0px;
 
-      h5 {
-        margin-bottom: 10px;
+			h5 {
+				margin-bottom: 10px;
 
-        svg {
-          margin-bottom: 2px;
-          margin-right: 10px;
-          font-size: 16px;
-        }
-      }
+				svg {
+					margin-bottom: 2px;
+					margin-right: 10px;
+					font-size: 16px;
+				}
+			}
 
-      p {
-        margin-bottom: 40px;
-      }
-    }
-  }
+			p {
+				margin-bottom: 40px;
+			}
+		}
+	}
 
-  &.collapsed {
-    position: fixed;
-    overflow: hidden;
-    z-index: 15;
+	&.collapsed {
+		position: fixed;
+		overflow: hidden;
+		z-index: 15;
 
-    .links {
-      display: block;
-      position: fixed;
-      top: 65px;
-      padding: 20px;
-      left: 0;
-      right: 0;
-      height: 100%;
-      background: var(--color-white);
-      border-top: var(--variant-border);
+		.links {
+			display: block;
+			position: fixed;
+			top: 65px;
+			padding: 20px;
+			left: 0;
+			right: 0;
+			height: 100%;
+			background: var(--color-white);
+			border-top: var(--variant-border);
 
-      .about.hidden {
-        display: grid;
-        gap: 40px;
-      }
-    }
-  }
+			.about.hidden {
+				display: grid;
+				gap: 40px;
+			}
+		}
+	}
 }

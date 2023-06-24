@@ -1,114 +1,119 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs"
+import path from "path"
 
 const getFiles = (dirPath, arrayOfFiles) => {
-    const files = fs.readdirSync(dirPath);
+	const files = fs.readdirSync(dirPath)
 
-    arrayOfFiles = arrayOfFiles || [];
+	arrayOfFiles = arrayOfFiles || []
 
-    files.forEach((file) => {
-        if (fs.statSync(`${dirPath}/${file}`).isDirectory()) {
-            arrayOfFiles = getFiles(`${file}`, arrayOfFiles);
-        } else {
-            arrayOfFiles.push(path.join(`${file}`));
-        }
-    });
+	files.forEach(file => {
+		if (fs.statSync(`${dirPath}/${file}`).isDirectory()) {
+			arrayOfFiles = getFiles(`${file}`, arrayOfFiles)
+		} else {
+			arrayOfFiles.push(path.join(`${file}`))
+		}
+	})
 
-    return arrayOfFiles;
+	return arrayOfFiles
 }
 
 const processContents = (files, contents) => {
-    const base = files.map((file, index) => {
-        const [mdAttributes, content] = contents[index].split("===");
+	const base = files.map((file, index) => {
+		const [mdAttributes, content] = contents[index].split("===")
 
-        if (!mdAttributes || !content) return null;
+		if (!mdAttributes || !content) return null
 
-        const attributes = mdAttributes
-            .split("\n")
-            .filter((line) => line !== "")
-            .map((line) => [line.slice(0, line.indexOf(":")), line.slice(line.indexOf(":") + 1)])
-            .map((line) => line.map((item) => item.trim()))
-            .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
+		const attributes = mdAttributes
+			.split("\n")
+			.filter(line => line !== "")
+			.map(line => [line.slice(0, line.indexOf(":")), line.slice(line.indexOf(":") + 1)])
+			.map(line => line.map(item => item.trim()))
+			.reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
 
-        const filename = file.replace("../../vault/", "").replace(".md", "");
+		const filename = file.replace("../../vault/", "").replace(".md", "")
 
-        const description = (attributes.description || content)
-            .slice(0, 180)
-            .replace(/[^a-zA-Z0-9 ]/g, "")
-            .trim()
+		const description = (attributes.description || content)
+			.slice(0, 180)
+			.replace(/[^a-zA-Z0-9 ]/g, "")
+			.trim()
 
-        const { title, image, author } = attributes;
+		const { title, image, author } = attributes
 
-        if (!title || !image || !author) return null;
+		if (!title || !image || !author) return null
 
-        return {
-            filename,
-            title,
-            description,
-            image,
-            content: content.trim(),
-            attributes: {
-                created: new Date(attributes.created || 0),
-                readTime: Math.max(1, Math.floor(content.split(" ").length / 200)),
-                authors: attributes.author?.split(",") || [],
-                tags: attributes.tag?.split(","),
-                related: attributes.related?.split(","),
-            }
-        };
-    });
+		return {
+			filename,
+			title,
+			description,
+			image,
+			content: content.trim(),
+			attributes: {
+				created: new Date(attributes.created || 0),
+				readTime: Math.max(1, Math.floor(content.split(" ").length / 200)),
+				authors: attributes.author?.split(",") || [],
+				tags: attributes.tag?.split(","),
+				related: attributes.related?.split(",")
+			}
+		}
+	})
 
-    return base
-        .map((file) => {
-            if (!file) return null;
+	return base
+		.map(file => {
+			if (!file) return null
 
-            const inbound = base
-                .filter((item) => item !== null)
-                .filter((item) => item.attributes.related?.includes(file.filename))
-                .map((item) => item.filename);
+			const inbound = base
+				.filter(item => item !== null)
+				.filter(item => item.attributes.related?.includes(file.filename))
+				.map(item => item.filename)
 
-            return {
-                ...file,
-                attributes: {
-                    ...file.attributes,
-                    inbound
-                }
-            };
-        })
-        .sort((a, b) => {
-            if (!a || !b) return 0;
+			return {
+				...file,
+				attributes: {
+					...file.attributes,
+					inbound
+				}
+			}
+		})
+		.sort((a, b) => {
+			if (!a || !b) return 0
 
-            return b.attributes.created.getTime() - a.attributes.created.getTime();
-        })
-};
+			return b.attributes.created.getTime() - a.attributes.created.getTime()
+		})
+}
 
-const vaultPath = path.join('vault');
+const vaultPath = path.join("vault")
 
-const files = getFiles(vaultPath);
+const files = getFiles(vaultPath)
 
-const fileContents = files.map((filePath) => {
-    return fs.readFileSync(path.join(vaultPath, filePath), 'utf-8');
-});
+const fileContents = files.map(filePath => {
+	return fs.readFileSync(path.join(vaultPath, filePath), "utf-8")
+})
 
-const processedContents = processContents(files, fileContents)
-    .filter((item) => item !== null);
+const processedContents = processContents(files, fileContents).filter(item => item !== null)
 
-const startDate = new Date("01/01/2021");
-const endDate = new Date();
+const startDate = new Date("01/01/2021")
+const endDate = new Date()
 
 const heatmap = []
 
 for (let date = startDate; date <= endDate; date.setMonth(date.getMonth() + 1)) {
-    const dateStr = date.toLocaleDateString().split("/")[0] + "/" + date.toLocaleDateString().split("/")[2];
+	const dateStr = date.toLocaleDateString().split("/")[0] + "/" + date.toLocaleDateString().split("/")[2]
 
-    const posts = processedContents
-        .filter((post) => post.attributes.created.toLocaleDateString().split("/")[0] + "/" + post.attributes.created.toLocaleDateString().split("/")[2] === dateStr)
-        .map((post) => post.filename);
+	const posts = processedContents
+		.filter(
+			post =>
+				post.attributes.created.toLocaleDateString().split("/")[0] +
+					"/" +
+					post.attributes.created.toLocaleDateString().split("/")[2] ===
+				dateStr
+		)
+		.map(post => post.filename)
 
-    heatmap.push({
-        date: dateStr,
-        posts,
-        count: posts.length
-    });
+	heatmap.push({
+		date: dateStr,
+		posts,
+		count: posts.length
+	})
 }
 
 console.log(heatmap)
@@ -117,13 +122,9 @@ const generatedCode = `// Do not edit this file directly - Generated on ${new Da
 
 import { HeatmapProps, PostProps } from "../types"
 
-const directory: PostProps[] = ${JSON.stringify(
-    processedContents,
-    null,
-    4
-).replace(/"([^"]+)":/g, '$1:')};
+const directory: PostProps[] = ${JSON.stringify(processedContents, null, 4).replace(/"([^"]+)":/g, "$1:")};
 
-const heatmap: HeatmapProps[] = ${JSON.stringify(heatmap, null, 4).replace(/"([^"]+)":/g, '$1:')};
+const heatmap: HeatmapProps[] = ${JSON.stringify(heatmap, null, 4).replace(/"([^"]+)":/g, "$1:")};
 
 export const usePosts = (): PostProps[] => {
     return directory;
@@ -135,6 +136,6 @@ export const usePost = (filename: string): PostProps | undefined => {
 
 export const useHeatmap = (): HeatmapProps[] => {
     return heatmap;
-}`;
+}`
 
-fs.writeFileSync(path.join("src/hooks/usePost.tsx"), generatedCode);
+fs.writeFileSync(path.join("src/hooks/usePost.tsx"), generatedCode)
